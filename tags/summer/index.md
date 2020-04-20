@@ -5,7 +5,7 @@ title: summer
 
 <!-- Begin code @ tags/summer/index.md -->
 
-<h1>{{ page.title }} Tag listing</h1>
+<h1>{{ page.title }}</h1>
 
 <div class="tagcloud">
 {%- for tags in site.tags -%}
