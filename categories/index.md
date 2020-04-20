@@ -10,7 +10,7 @@ title: Categories
 <div class="catcloud">
 {%- for category in site.categories -%}
 <!--  <a href="#{{ category[0] }}"><h3 style="display:inline;">{{ category[0] }}</h3></a> -->
-  {% capture cat_link %}{% link categories/category[0] %}{% endcapture %}
+  {% capture cat_link %}{% link categories/{{ category[0] }} %}{% endcapture %}
   <a href="{{ cat_link | relative_url }}"><h3 style="display:inline;">{{ category[0] }}</h3></a>
 {% endfor %}
 </div>
