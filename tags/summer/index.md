@@ -3,7 +3,7 @@ layout: default
 title: summer
 ---
 
-<!-- Begin code @ tags/summer/index.md -->
+<!-- Begin code @ tags/?/index.md -->
 
 <h1>Posts Tagged with xxy {{ page.title }}</h1>
 
@@ -13,14 +13,14 @@ title: summer
 
 {%- for tags in site.tags -%}
   {%- if tags[0] == title -%}
-<!--  <a name="{{ tags[0] }}"><h3>{{ tags[0] }}</h3></a> -->
   <ul>
     {%- for post in tags[1] -%}
       <li><a href="{{ post.url| relative_url }}">{{ post.title }}</a></li>
+      <time>{{ post.date | date: "%e %B %Y" }}</time>
     {% endfor %}
   </ul>
   {% endif %}
 {%- endfor -%}
 </div>
 
-<!-- End code @ tags/summer/index.md -->
+<!-- End code @ tags/?/index.md -->
