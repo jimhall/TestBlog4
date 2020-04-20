@@ -10,11 +10,11 @@ title: Categories
 <div class="catcloud">
 {%- for category in site.categories -%}
 <!--  <a href="#{{ category[0] }}"><h3 style="display:inline;">{{ category[0] }}</h3></a> -->
-  <a href="{{ category[0] | prepend: 'category' | relative_url }}"><h3 style="display:inline;">{{ category[0] }}</h3></a>
+  <a href="{{ category[0] | prepend: 'categories/' | relative_url }}"><h3 style="display:inline;">{{ category[0] }}</h3></a>
 {% endfor %}
 </div>
 
-<p>goodbug</p>
+<p></p>
 
 <div class="catcloud">
 {%- for category in site.categories -%}
