@@ -5,9 +5,10 @@ title: summer
 
 <!-- Begin code @ tags/summer/index.md -->
 
-<h1>Posts Tagged with yxxy {{ page.title }}</h1>
+<h1>Posts Tagged with xxy {{ page.title }}</h1>
 
 <div class="tagcloud">
+
 {% capture title %}{{ page.title }}{% endcapture %}
 
 {%- for tags in site.tags -%}
@@ -19,7 +20,7 @@ title: summer
     {% endfor %}
   </ul>
   {% endif %}
-{% endfor %}
+{%- endfor -%}
 </div>
 
 <!-- End code @ tags/summer/index.md -->
