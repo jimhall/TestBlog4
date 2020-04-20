@@ -8,8 +8,10 @@ title: summer
 <h1>Posts Tagged with yxxy {{ page.title }}</h1>
 
 <div class="tagcloud">
+{% capture title %}{{ page.title }}{% endcapture %}
+
 {%- for tags in site.tags -%}
-  {%- if tags[0] == {{ page.title }} -%}
+  {%- if tags[0] == title -%}
 <!--  <a name="{{ tags[0] }}"><h3>{{ tags[0] }}</h3></a> -->
   <ul>
     {%- for post in tags[1] -%}
