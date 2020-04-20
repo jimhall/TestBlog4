@@ -1,12 +1,12 @@
 ---
 layout: default
-title: summer
+title: Summer
 ---
 
 <!-- Begin code @ tags/summer/index.md -->
 
 <!-- <h1>{{ page.title }}</h1> -->
-<h1>Summre</h1>
+<h1>Summer</h1>
 
 <div class="tagcloud">
 {%- for tags in site.tags -%}
