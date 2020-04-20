@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Summer
+title: summer
 ---
 
 <!-- Begin code @ tags/summer/index.md -->
