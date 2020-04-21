@@ -10,8 +10,13 @@ layout: default
 {{content}}
 
 {% if page.categories %}
-  <small>categories: <em>{{ page.categories | join: "</em> - <em>" }}</em></small>
+<small>categories:
+{%- for categories in site.categories -%}
+  <a href="{{ categories | prepend: 'categories/' | relative_url }}">
+  <em style="display:inline;">{{ categories }}</em> -
+{% endfor %}
 {% endif %}
+</small>
 
 <p></p>
 
