@@ -22,6 +22,7 @@
     {%- for post in categories[1] -%}
       <li><a href="{{ post.url| relative_url }}">{{ post.title }}</a></li>
       <time>{{ post.date | date: "%e %B %Y" }}</time>
+      {{ post.excerpt }}
     {% endfor %}
   </ul>
   {% endif %}
