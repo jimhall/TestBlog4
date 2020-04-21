@@ -13,7 +13,7 @@ layout: default
 <small>categories:
 {%- for categories in site.categories -%}
   <a href="{{ categories | prepend: 'categories/' | relative_url }}">
-  <em style="display:inline;">{{ categories }}</em> -
+  <em style="display:inline;">{{ categories }}</em></a> -
 {% endfor %}
 {% endif %}
 </small>
