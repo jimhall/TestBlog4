@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Categories
+title: Tags
 ---
 
 <!-- Begin code @ tags/index.md -->
