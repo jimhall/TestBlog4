@@ -12,6 +12,18 @@ layout: default
 {% if page.categories %}
 <small>categories:
 {%- for categories in page.categories -%}
+  {% if categories.last %}
+    <em><a href="{{ categories | prepend: 'categories/' | relative_url }}">{{ categories }}</a></em>
+  {% else %}
+    <em><a href="{{ categories | prepend: 'categories/' | relative_url }}">{{ categories }}</a></em> -
+  {% endif %}
+{% endfor %}
+{% endif %}
+</small>
+
+{% if page.categories %}
+<small>categories:
+{%- for categories in page.categories -%}
   <em><a href="{{ categories | prepend: 'categories/' | relative_url }}">{{ categories }}</a></em> -
 {% endfor %}
 {% endif %}
