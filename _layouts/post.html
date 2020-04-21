@@ -11,7 +11,7 @@ layout: default
 
 {% if page.categories %}
 <small>categories:
-{%- for categories in site.categories -%}
+{%- for categories in page.categories -%}
   <a href="{{ categories | prepend: 'categories/' | relative_url }}">
   <em style="display:inline;">{{ categories }}</em></a> -
 {% endfor %}
