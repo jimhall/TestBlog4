@@ -22,11 +22,11 @@ layout: default
 {%- for categories in page.categories -%}
   {%- if forloop.last == false -%}
     <em><a href="{{ categories | prepend: 'categories/' | relative_url }}">{{ categories }}</a></em> -
-  {% else %}
+  {%- else -%}
     <em><a href="{{ categories | prepend: 'categories/' | relative_url }}">{{ categories }}</a></em> 
-  {% endif %}
-{% endfor %}
-{% endif %}
+  {%- endif -%}
+{%- endfor -%}
+{%- endif -%}
 </small>
 
 <p></p>
@@ -34,7 +34,7 @@ layout: default
 {% if page.tags %}
 <small>tags:
 {%- for tags in page.tags -%}
-  {% if forloop.last == false %}
+  {%- if forloop.last == false -%}
     <em><a href="{{ tags | prepend: 'tags/' | relative_url }}">{{ tags }}</a></em> -
   {% else %}
     <em><a href="{{ tags | prepend: 'tags/' | relative_url }}">{{ tags }}</a></em> 
