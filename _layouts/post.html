@@ -9,6 +9,14 @@ layout: default
 
 {{content}}
 
+<!-- Please see: 
+     https://stackoverflow.com/questions/34568011/add-an-element-on-the-last-jekyll-loop-of-posts
+     Regarding the use of forloop.last 
+     
+     Please see:
+     https://stackoverflow.com/questions/52250168/url-string-interpolation-with-liquid-tags-jekyl
+     Regarding the prepend concept to muck with URLsl-->
+
 {% if page.categories %}
 <small>categories:
 {%- for categories in page.categories -%}
