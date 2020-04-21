@@ -20,7 +20,7 @@ layout: default
 {% if page.categories %}
 <small>categories:
 {%- for categories in page.categories -%}
-  {% if forloop.last == false %}
+  {%- if forloop.last == false -%}
     <em><a href="{{ categories | prepend: 'categories/' | relative_url }}">{{ categories }}</a></em> -
   {% else %}
     <em><a href="{{ categories | prepend: 'categories/' | relative_url }}">{{ categories }}</a></em> 
