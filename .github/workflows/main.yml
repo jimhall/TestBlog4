@@ -37,3 +37,4 @@ jobs:
       run: |
         echo execute scripts/test.py
         python scripts/test.py -t
+        shell: python
