@@ -4,6 +4,7 @@ from datetime import datetime
 import os
 import glob
 import sys
+import time
 
 # Source: https://stackoverflow.com/questions/11061058/using-htmlparser-in-python-3-2
 class MLStripper(HTMLParser):
@@ -40,6 +41,7 @@ def missing_dirs(typedir):
     create_dirs = catset.difference(existing_dirs)
     return create_dirs
 
+time.sleep(60)
 #https://realpython.com/python-command-line-arguments/
 opts = [opt for opt in sys.argv[1:] if opt.startswith("-")]
 baseurl = 'https://jimhall.github.io/TestBlog4/'
