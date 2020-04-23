@@ -24,6 +24,7 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+    #https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#specifying-a-python-version
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v1
       with:
@@ -40,6 +41,7 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+        which python
         /usr/bin/python --version
         /usr/bin/python3 --version
         ls /usr/local/bin
