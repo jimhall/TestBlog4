@@ -22,11 +22,11 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     # Using an action script to run newer version of python
-    - uses: actions/setup-python@v1
-      with:
-        python-version: '3.7'
-        architecture: 'x64'
-      - run: python scripts/test.py
+    #- uses: actions/setup-python@v1
+    #  with:
+    #    python-version: '3.7'
+    #    architecture: 'x64'
+    #  - run: python scripts/test.py
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
