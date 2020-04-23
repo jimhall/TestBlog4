@@ -31,6 +31,7 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+        /usr/bin/python --version
 
     # Runs a set of commands using the runners shell
     - name: Display CWD
@@ -42,10 +43,10 @@ jobs:
 
     #    print(os.listdir(.))
     # Runs a set of commands using the runners shell
-    - name: Run python script to cofirm python runs
-      run: |
-        echo execute scripts/test2.py
-        ./scripts/test2.py -t
+#    - name: Run python script to cofirm python runs
+#      run: |
+#        echo execute scripts/test2.py
+#        ./scripts/test2.py -t
 
     # Runs a set of commands using the runners shell
 #    - name: Run python script to check for tag/cat dir changes
