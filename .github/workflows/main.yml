@@ -45,4 +45,4 @@ jobs:
     - name: Run python script to check for tag/cat dir changes
       run: |
         echo execute scripts/test.py
-        ./scripts/test.py -t
+        ./scripts/test2.py 
