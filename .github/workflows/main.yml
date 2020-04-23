@@ -40,10 +40,9 @@ jobs:
         print(glob.glob('*'))
       shell: python
 
-#        print(os.listdir(.))
+    #    print(os.listdir(.))
     # Runs a set of commands using the runners shell
-#    - name: Run python script to check for tag/cat dir changes
-#      run: |
-#        echo execute scripts/test.py
-#        shell: python
-#        python scripts/test.py -t
+    - name: Run python script to check for tag/cat dir changes
+      run: |
+        echo execute scripts/test.py
+        ./scripts/test.py -t
