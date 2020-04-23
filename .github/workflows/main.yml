@@ -36,5 +36,5 @@ jobs:
     - name: Run python script to check for tag/cat dir changes
       run: |
         echo execute scripts/test.py
-        python scripts/test.py -t
         shell: python
+        python scripts/test.py -t
