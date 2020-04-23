@@ -1,5 +1,6 @@
 from urllib.request import urlopen
 from html.parser import HTMLParser
+from datetime import datetime
 import os
 import glob
 import sys
@@ -52,22 +53,35 @@ layout: tags
 '''
 
 if __name__ == "__main__":
+    now = datetime.now()
+    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
     if "-c" in opts: # categories
         print("Adding new categories directories if necessary")
         typedir = 'categories'
+        with open('catreport.txt', 'wt') as cout:
+            cout.write('RUN = ' + dt_string + '\n')
     elif "-t" in opts: # tags
         print("Adding new tags directories if necessary")
         typedir = 'tags'
+        with open('tagreport.txt', 'wt') as tout:
+            tout.write('RUN = ' + dt_string + '\n')
     else:
         raise SystemExit(f"Usage: {sys.argv[0]} (-c | -t ) <arguments>...")
+
 
 # Simple logic if there are no new dirs to create
 # https://stackoverflow.com/questions/29064227/how-can-i-test-to-see-if-a-defaultdictset-is-empty-in-python
     create_dirs = missing_dirs(typedir)
     if not create_dirs:
+        if typedir == 'categories':
+            with open('catreport.txt', 'a') as cout:
+                cout.write(typedir + ': NONE' + '\n')
+        if typedir == 'tags':
+            with open('tagreport.txt', 'a') as tout:
+                tout.write(typedir + ': NONE' + '\n')
+        # Preferred way to exit:
+        # https://stackoverflow.com/questions/73663/how-to-terminate-a-python-script
         print('No new directories to create')
-# Preferred way to exit:
-#https://stackoverflow.com/questions/73663/how-to-terminate-a-python-script
         sys.exit()
 
     for dir in create_dirs:
@@ -75,11 +89,15 @@ if __name__ == "__main__":
         indexmd = basedir + '/index.md'
         print(basedir)
         print(indexmd)
-#        os.mkdir(basedir)
-#        with open(indexmd, 'wt') as fout:
-#            if typedir == 'categories':
-#                fout.write(catindexmd)
-#            if typedir == 'tags':
-#                fout.write(tagindexmd)
-#            fout.write('title: ' + dir + '\n')
-#            fout.write('---\n')
+        os.mkdir(basedir)
+        with open(indexmd, 'wt') as fout:
+            if typedir == 'categories':
+                fout.write(catindexmd)
+                with open('catreport.txt', 'a') as cout:
+                    cout.write(typedir + 'file: ' + indexmd + '\n')
+            if typedir == 'tags':
+                fout.write(tagindexmd)
+                with open('tagreport.txt', 'a') as tout:
+                    tout.write(typedir + 'file: ' + indexmd + '\n')
+            fout.write('title: ' + dir + '\n')
+            fout.write('---\n')

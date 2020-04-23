@@ -68,3 +68,12 @@ jobs:
       run: |
         echo execute scripts/test.py
         python scripts/test.py -c
+
+    # https://stackoverflow.com/questions/57921401/push-to-origin-from-github-action
+    - name: Commit changes to tags/cats
+      run: |
+          git config --global user.name 'jimhall'
+          git config --global user.email 'jimhallsun@gmail.com'
+          git commit -am "Automated creation of tags and categories pages"
+          git push
+
