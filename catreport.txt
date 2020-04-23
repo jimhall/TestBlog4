@@ -1,5 +1,2 @@
-RUN = 23/04/2020 20:25:04
-categoriesfile: categories/testing/index.md
-categoriesfile: categories/blog/index.md
-categoriesfile: categories/travel/index.md
-categoriesfile: categories/misc/index.md
+RUN = 23/04/2020 20:35:47
+categories: NONE
