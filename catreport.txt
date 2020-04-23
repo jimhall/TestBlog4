@@ -1,2 +1,2 @@
-RUN = 23/04/2020 20:43:45
-categories: NONE
+RUN = 23/04/2020 20:48:08
+categoriesfile: categories/computing/index.md
