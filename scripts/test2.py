@@ -1,9 +1,8 @@
-#!/usr/bin/python
-
 import glob
 import os
 import sys
 print(glob.glob('*'))
+print(sys.version)
 
 opts = [opt for opt in sys.argv[1:] if opt.startswith("-")]
 
