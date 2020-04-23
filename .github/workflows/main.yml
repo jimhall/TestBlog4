@@ -47,7 +47,7 @@ jobs:
     - uses: actions/setup-python@v1
       with:
         python-version: '3.7.6'
-        architecture: x64
+        architecture: 'x64'
       - run: python scripts/test.py
 
     #    print(os.listdir(.))
