@@ -33,6 +33,7 @@ jobs:
         echo test, and deploy your project.
         /usr/bin/python --version
         /usr/bin/python3 --version
+        ls /usr/local/bin
 
     # Runs a set of commands using the runners shell
     - name: Display CWD
