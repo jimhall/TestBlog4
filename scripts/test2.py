@@ -8,7 +8,7 @@ opts = [opt for opt in sys.argv[1:] if opt.startswith("-")]
 
 if __name__ == "__main__":
     if "-c" in opts: # categories
-        print("Adding new categories directories if necessary")
+        print("Adding new test categories directories if necessary")
         typedir = 'categories'
     elif "-t" in opts: # tags
         print("Adding new tags directories if necessary")
