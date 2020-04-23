@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from urllib.request import urlopen
 from html.parser import HTMLParser
 import os
