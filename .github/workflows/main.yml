@@ -37,7 +37,7 @@ jobs:
       run: |
         import os
         import glob
-        print(os.listdir(.))
+#        print(os.listdir(.))
         print(glob.glob('*'))
       shell: python
 
