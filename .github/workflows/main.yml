@@ -24,7 +24,7 @@ jobs:
     # Using an action script to run newer version of python
     - uses: actions/setup-python@v1
       with:
-        python-version: '3.x'
+        python-version: '3.7'
         architecture: 'x64'
       - run: python scripts/test.py
 
