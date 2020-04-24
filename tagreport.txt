@@ -1,3 +1,3 @@
-RUN = 23/04/2020 20:59:45
-tagsfile: tags/xbox/index.md
-tagsfile: tags/fortnite/index.md
+RUN = 24/04/2020 17:07:30
+tagsfile: tags/superman/index.md
+tagsfile: tags/batman/index.md
