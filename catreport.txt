@@ -1,2 +1,2 @@
-RUN = 24/04/2020 17:06:30
-categoriesfile: categories/comics/index.md
+RUN = 24/04/2020 21:00:17
+categories: NONE
