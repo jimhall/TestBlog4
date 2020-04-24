@@ -17,6 +17,7 @@ layout: default
      https://stackoverflow.com/questions/52250168/url-string-interpolation-with-liquid-tags-jekyl
      Regarding the prepend concept to muck with URLs-->
 
+<div class="container">
 {% if page.categories %}
 <small>categories:
 {% for categories in page.categories %}
@@ -28,7 +29,8 @@ layout: default
 {% endfor %}
 {% endif %}
 </small>
-
+</div>
+<div class="container">
 {% if page.tags %}
 <small>tags:
 {% for tags in page.tags %}
@@ -40,3 +42,4 @@ layout: default
 {% endfor %}
 {% endif %}
 </small>
+</div>
