@@ -20,13 +20,11 @@
 <!-- End code from https://realfavicongenerator.net -->
 <!-- tags added based on https://css-tricks.com/essential-meta-tags-social-media/ -->
 <!-- <meta property="og:image" content="{{ '/apple-touch-icon.png' | relative_url }}"> -->
-<meta property="og:image" content="https://jimhall.github.io/TestBlog4/assets/images/favicon/apple-touch-icon.png">
-<meta property="twitter:card" content="summary">
-<meta property="twitter:image" content="{{ page.image | default: "https://jimhall.github.io/TestBlog4/assets/images/favicon/apple-touch-icon.png" }}">
-<meta name="twitter:image:alt" content="Jim Hall's Blog">
-<meta name="twitter:site" content="@jimhall37">
-<!-- Needs to be migrated to the final site END -->
-
+  <meta property="og:image" content="https://jimhall.github.io/TestBlog4/assets/images/favicon/apple-touch-icon.png">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:image" content="{{ page.image | default: "https://jimhall.github.io/TestBlog4/assets/images/favicon/apple-touch-icon.png" }}">
+  <meta name="twitter:image:alt" content="Jim Hall's Blog">
+  <meta name="twitter:site" content="@jimhall37">
   <link href="{{ '/feed.xml'| relative_url }}" type="application/atom+xml" rel="alternate" title="{{ site.title }}"/>
 <!-- See https://github.com/jekyll/jekyll-feed#meta-tags -->
 {% feed_meta %}
