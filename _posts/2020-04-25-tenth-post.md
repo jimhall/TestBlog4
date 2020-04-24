@@ -4,7 +4,7 @@ title: "Tenth Post"
 date: 2020-04-25
 categories: [blog, comics]
 tags: [superman, flash]
-image: "https://images.app.goo.gl/WTdLo2v4ttimKkfF7"
+image: "http://i.ebayimg.com/images/i/140751568099-0-1/s-l1000.jpg"
 excerpt_separator: <!--more-->
 ---
 
