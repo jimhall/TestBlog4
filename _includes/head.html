@@ -7,21 +7,22 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
 
 <!-- Begin code from https://realfavicongenerator.net -->
-<!-- Source file in /assets/images/jh-favico.svg -->
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | relative_url }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16x16.png' | relative_url }}">
-  <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
-  <link rel="mask-icon" href="{{ '/safari-pinned-tab.svg' | relative_url }}" color="#5bbad5">
-  <meta name="msapplication-TileImage" content="{{ '/mstile-144x144.png' | relative_url }}">
+<!-- Source file in /assets/images/favicon/jh-favico.svg -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/favicon/apple-touch-icon.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon/favicon-32x32.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon/favicon-16x16.png' | relative_url }}">
+  <link rel="manifest" href="{{ '/assets/images/favicon/site.webmanifest' | relative_url }}">
+  <link rel="mask-icon" href="{{ '/assets/images/favicon/safari-pinned-tab.svg' | relative_url }}" color="#5bbad5">
+  <link rel="shortcut icon" href="{{ '/assets/images/favicon/favicon.ico' | relative_url }}">
   <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="{{ '/assets/images/favicon/browserconfig.xml' | relative_url }}">
   <meta name="theme-color" content="#ffffff">
 <!-- End code from https://realfavicongenerator.net -->
 <!-- tags added based on https://css-tricks.com/essential-meta-tags-social-media/ -->
 <!-- <meta property="og:image" content="{{ '/apple-touch-icon.png' | relative_url }}"> -->
-<meta property="og:image" content="https://jimhall.github.io/TestBlog3/apple-touch-icon.png">
+<meta property="og:image" content="https://jimhall.github.io/TestBlog4/assets/images/favicon/apple-touch-icon.png">
 <meta property="twitter:card" content="summary">
-<meta property="twitter:image" content="https://jimhall.github.io/TestBlog3/apple-touch-icon.png">
+<meta property="twitter:image" content="{{ page.image | default: https://jimhall.github.io/TestBlog4/assets/images/favicon/apple-touch-icon.png">
 <meta name="twitter:image:alt" content="Jim Hall's Blog">
 <meta name="twitter:site" content="@jimhall37">
 <!-- Needs to be migrated to the final site END -->
