@@ -41,7 +41,7 @@ def missing_dirs(typedir):
     create_dirs = catset.difference(existing_dirs)
     return create_dirs
 
-time.sleep(60)
+time.sleep(30)
 #https://realpython.com/python-command-line-arguments/
 opts = [opt for opt in sys.argv[1:] if opt.startswith("-")]
 baseurl = 'https://jimhall.github.io/TestBlog4/'
