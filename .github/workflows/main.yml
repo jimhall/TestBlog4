@@ -80,6 +80,7 @@ jobs:
     - name: Commit changes to tags/cats
       run: |
           echo "NEWCAT: $NEWCAT NEWTAG: $NEWTAG"
+          echo "NO GIT CMDS BELOW MEANS NOT CATS OR TAGS"
           if [ $NEWCAT == 1 -o $NEWTAG == 1 ]; then
             git config --global user.name 'jimhall'
             git config --global user.email 'jimhallsun@gmail.com'
