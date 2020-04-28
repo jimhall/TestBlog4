@@ -64,7 +64,7 @@ jobs:
       run: |
         echo execute scripts/test.py -c
         python scripts/test.py -c
-      run:  echo $NEWCAT $NEWTAG
+        echo $NEWCAT $NEWTAG
 
     # Runs a set of commands using the runners shell
     - name: Run python script to create tags dir/index.md
