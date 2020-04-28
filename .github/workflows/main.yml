@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
     paths:
-  #  - '_posts/**'
+    - '_posts/**'
   # pull_request:
   #  branches: [ master ]
 
@@ -80,12 +80,13 @@ jobs:
     - name: Commit changes to tags/cats
       run: |
           echo "NEWCAT: $NEWCAT NEWTAG: $NEWTAG"
-          echo "NO GIT CMDS BELOW MEANS NOT CATS OR TAGS"
           if [ $NEWCAT == 1 -o $NEWTAG == 1 ]; then
             git config --global user.name 'jimhall'
             git config --global user.email 'jimhallsun@gmail.com'
             git add .
             git commit -am "Automated creation of tags and categories pages"
             git push
+          else
+            echo "NO GIT CMDS BECAUSE NO NEW CATS OR TAGS CREATED"
           fi
 
