@@ -42,12 +42,6 @@ def missing_dirs(typedir):
     return create_dirs
 
 time.sleep(3)
-#os.environ["NEWCAT"] = "0"
-#os.environ["NEWTAG"] = "0"
-os.system('export NEWCAT=0')
-os.system('export NEWTAG=0')
-os.system('echo "::set-env name=NEWCAT::$NEWCAT"')
-os.system('echo "::set-env name=NEWCAT::$NEWTAG"')
 #https://realpython.com/python-command-line-arguments/
 opts = [opt for opt in sys.argv[1:] if opt.startswith("-")]
 baseurl = 'https://jimhall.github.io/TestBlog4/'
@@ -61,6 +55,8 @@ layout: tags
 '''
 
 if __name__ == "__main__":
+    with open('/tmp/newcatortag.txt', 'wt') as sout:
+        sout.write('0\n')
     now = datetime.now()
     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
     if "-c" in opts: # categories print("Adding new categories directories if necessary")
@@ -90,12 +86,9 @@ if __name__ == "__main__":
         # https://stackoverflow.com/questions/73663/how-to-terminate-a-python-script
         print('No new directories to create')
         sys.exit()
-#    else:
-#        if typedir == 'categories':
-#            os.environ["NEWCAT"] = "1"
-#        if typedir == 'tags':
-#            os.environ["NEWTAG"] = "1"
-        
+    else:
+        with open('/tmp/newcatortag.txt', 'wt') as sout:
+            sout.write('1\n')
 
     for dir in create_dirs:
         basedir = typedir + '/' + dir
