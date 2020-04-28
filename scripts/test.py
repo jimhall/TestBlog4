@@ -99,7 +99,7 @@ if __name__ == "__main__":
         basedir = typedir + '/' + dir
         indexmd = basedir + '/index.md'
 #        print(basedir)
-        print(typedir + '\t' + dir + '\n'))
+        print(typedir + '\t' + dir + '\n')
 #        print(indexmd)
         os.mkdir(basedir)
         with open(indexmd, 'wt') as fout:
