@@ -88,7 +88,7 @@ if __name__ == "__main__":
 #                tout.write(typedir + ': NONE' + '\n')
         # Preferred way to exit:
         # https://stackoverflow.com/questions/73663/how-to-terminate-a-python-script
-        print('No new directories for ' + typedir ' to create')
+        print('No new ' + typedir ' directories to create\n')
         sys.exit()
     else:
         with open('/tmp/newcatortag.txt', 'wt') as sout:
