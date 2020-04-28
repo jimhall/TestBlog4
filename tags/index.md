@@ -5,7 +5,7 @@ title: Tags
 
 <!-- Begin code @ tags/index.md -->
 
-# Category listing
+# Tags listing
 
 <div class="catcloud">
 {%- for tag in site.tags -%}
@@ -18,9 +18,9 @@ title: Tags
 
 <div class="catcloud">
 {%- for tag in site.tags -%}
-  <a name="{{ tag[0] }}"><h3>{{ tag[0] }}</h3></a>
+  <a name="{{ tag[0] }}"><h3 style="display:inline;">{{ tag[0] }}</h3></a>
   <!-- <a href="{{ tag[0] | prepend: 'tags/' | relative_url }}"><h3>{{ tag[0] }}</h3></a> -->
-  <a href="{{ tag[0] | prepend: 'tags/' | relative_url }}"><h4 style="display:inline;">Dedicated page for {{ tag[0] }}</h4></a>
+  <a href="{{ tag[0] | prepend: 'tags/' | relative_url }}"><h4 style="display:inline;">(Dedicated page for {{ tag[0] }})</h4></a>
   <ul>
     {%- for post in tag[1] -%}
       <li><a href="{{ post.url| relative_url }}">{{ post.title }}</a></li>
