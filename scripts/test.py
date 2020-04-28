@@ -63,13 +63,13 @@ if __name__ == "__main__":
     if "-c" in opts: # categories print("Adding new categories directories if necessary")
         typedir = 'categories'
         print("Adding new categories directories if necessary")
-        print('RUN = ' + dt_string + typedir + '\n')
+        print('RUN = ' + dt_string + ' ' + typedir + '\n')
 #        with open('catreport.txt', 'wt') as cout:
 #            cout.write('RUN = ' + dt_string + '\n')
     elif "-t" in opts: # tags
         typedir = 'tags'
         print("Adding new tags directories if necessary")
-        print('RUN = ' + dt_string + typedir + '\n')
+        print('RUN = ' + dt_string + ' ' +  typedir + '\n')
 #        with open('tagreport.txt', 'wt') as tout:
 #            tout.write('RUN = ' + dt_string + '\n')
     else:
@@ -88,7 +88,7 @@ if __name__ == "__main__":
 #                tout.write(typedir + ': NONE' + '\n')
         # Preferred way to exit:
         # https://stackoverflow.com/questions/73663/how-to-terminate-a-python-script
-        print('No new directories to create\n')
+        print('No new' + typedir + ' directories to create\n')
         sys.exit()
     else:
         with open('/tmp/newcatortag.txt', 'wt') as sout:
