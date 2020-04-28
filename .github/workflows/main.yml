@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
     paths:
-  #  - '_posts/**'
+    - '_posts/**'
   # pull_request:
   #  branches: [ master ]
 
