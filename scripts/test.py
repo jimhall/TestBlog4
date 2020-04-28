@@ -53,21 +53,25 @@ layout: categories
 tagindexmd = '''---
 layout: tags
 '''
+tmpfile='/tmp/newcatortag.txt'
 
 if __name__ == "__main__":
-    with open('/tmp/newcatortag.txt', 'wt') as sout:
+    with open(tmpfile, 'wt') as sout:
         sout.write('0\n')
     now = datetime.now()
     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
     if "-c" in opts: # categories print("Adding new categories directories if necessary")
         typedir = 'categories'
-        with open('catreport.txt', 'wt') as cout:
-            cout.write('RUN = ' + dt_string + '\n')
+        print("Adding new categories directories if necessary")
+        print('RUN = ' + dt_string + typedir + '\n')
+#        with open('catreport.txt', 'wt') as cout:
+#            cout.write('RUN = ' + dt_string + '\n')
     elif "-t" in opts: # tags
-        print("Adding new tags directories if necessary")
         typedir = 'tags'
-        with open('tagreport.txt', 'wt') as tout:
-            tout.write('RUN = ' + dt_string + '\n')
+        print("Adding new tags directories if necessary")
+        print('RUN = ' + dt_string + typedir + '\n')
+#        with open('tagreport.txt', 'wt') as tout:
+#            tout.write('RUN = ' + dt_string + '\n')
     else:
         raise SystemExit(f"Usage: {sys.argv[0]} (-c | -t ) <arguments>...")
 
@@ -76,15 +80,15 @@ if __name__ == "__main__":
 # https://stackoverflow.com/questions/29064227/how-can-i-test-to-see-if-a-defaultdictset-is-empty-in-python
     create_dirs = missing_dirs(typedir)
     if not create_dirs:
-        if typedir == 'categories':
-            with open('catreport.txt', 'a') as cout:
-                cout.write(typedir + ': NONE' + '\n')
-        if typedir == 'tags':
-            with open('tagreport.txt', 'a') as tout:
-                tout.write(typedir + ': NONE' + '\n')
+#        if typedir == 'categories':
+#            with open('catreport.txt', 'a') as cout:
+#                cout.write(typedir + ': NONE' + '\n')
+#        if typedir == 'tags':
+#            with open('tagreport.txt', 'a') as tout:
+#                tout.write(typedir + ': NONE' + '\n')
         # Preferred way to exit:
         # https://stackoverflow.com/questions/73663/how-to-terminate-a-python-script
-        print('No new directories to create')
+        print('No new directories for ' + typedir ' to create')
         sys.exit()
     else:
         with open('/tmp/newcatortag.txt', 'wt') as sout:
@@ -99,11 +103,11 @@ if __name__ == "__main__":
         with open(indexmd, 'wt') as fout:
             if typedir == 'categories':
                 fout.write(catindexmd)
-                with open('catreport.txt', 'a') as cout:
-                    cout.write(typedir + 'file: ' + indexmd + '\n')
+#                with open('catreport.txt', 'a') as cout:
+#                    cout.write(typedir + 'file: ' + indexmd + '\n')
             if typedir == 'tags':
                 fout.write(tagindexmd)
-                with open('tagreport.txt', 'a') as tout:
-                    tout.write(typedir + 'file: ' + indexmd + '\n')
+#                with open('tagreport.txt', 'a') as tout:
+#                    tout.write(typedir + 'file: ' + indexmd + '\n')
             fout.write('title: ' + dir + '\n')
             fout.write('---\n')
