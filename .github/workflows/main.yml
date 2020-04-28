@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
     paths:
-    - '_posts/**'
+  #  - '_posts/**'
   # pull_request:
   #  branches: [ master ]
 
@@ -64,12 +64,14 @@ jobs:
       run: |
         echo execute scripts/test.py -c
         python scripts/test.py -c
+        echo $NEWCAT $NEWTAG
 
     # Runs a set of commands using the runners shell
     - name: Run python script to create tags dir/index.md
       run: |
         echo execute scripts/test.py -t
         python scripts/test.py -t
+        echo $NEWCAT $NEWTAG
 
     # https://stackoverflow.com/questions/57921401/push-to-origin-from-github-action
     - name: Commit changes to tags/cats

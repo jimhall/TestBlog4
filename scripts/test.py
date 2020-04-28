@@ -41,7 +41,9 @@ def missing_dirs(typedir):
     create_dirs = catset.difference(existing_dirs)
     return create_dirs
 
-time.sleep(30)
+time.sleep(3)
+os.environ["NEWCAT"] = "0"
+os.environ["NEWTAG"] = "0"
 #https://realpython.com/python-command-line-arguments/
 opts = [opt for opt in sys.argv[1:] if opt.startswith("-")]
 baseurl = 'https://jimhall.github.io/TestBlog4/'
@@ -85,6 +87,12 @@ if __name__ == "__main__":
         # https://stackoverflow.com/questions/73663/how-to-terminate-a-python-script
         print('No new directories to create')
         sys.exit()
+    else:
+        if typedir == 'categories':
+            os.environ["NEWCAT"] = "1"
+        if typedir == 'tags':
+            os.environ["NEWTAG"] = "1"
+        
 
     for dir in create_dirs:
         basedir = typedir + '/' + dir
