@@ -64,7 +64,7 @@ jobs:
       run: |
         echo execute scripts/test.py -c
         python scripts/test.py -c
-        env
+        touch /tmp/foo
         echo $NEWCAT $NEWTAG
 
     # Runs a set of commands using the runners shell
