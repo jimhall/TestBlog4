@@ -16,6 +16,8 @@ Here is some more content. Fun right?
 Testing one two three github actions is now working
 With a little sleep superheroes. Thor icon added
 
+<script src="https://gist.github.com/jonschlinkert/5854601.js"></script>
+
 Here is a code snippet:
 
  <script src="http://gist-it.appspot.com/https://github.com/jimhall/TestBlog4/blob/master/scripts/test.py"></script>
