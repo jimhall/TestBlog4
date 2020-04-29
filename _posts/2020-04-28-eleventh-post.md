@@ -18,4 +18,4 @@ With a little sleep superheroes. Thor icon added
 
 Here is a code snippet:
 
-<script src="http://gist-it.appspot.com/https://github.com/jimhall/TestBlog4/blob/2940b1ea9eab23144b19023b949538d2614e37f8/scripts/test.py#L21-L24"></script>
+<script src="http://gist-it.appspot.com/https://github.com/jimhall/TestBlog4/blob/master/scripts/test.py"></script>
