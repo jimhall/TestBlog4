@@ -20,6 +20,6 @@ With a little sleep superheroes. Thor icon added
 
 Here is a code snippet:
 
- <script src="http://gist-it.appspot.com/https://github.com/jimhall/TestBlog4/blob/master/scripts/test.py"></script>
+<script src="https://gist.github.com/jimhall/4de3ea6d452d9e946ce75fb6a70ec47b.js"></script>
 
 Here is the balance of the work in case a new line is required. loouie.
