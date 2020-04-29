@@ -9,14 +9,6 @@ title: Categories
 
 <div class="catcloud">
 <!-- Source for sorted categories: https://gist.github.com/Phlow/57eb457898e4ac4c4a20 -->
-{% comment %}
-#
-#  Change date order by adding '| reversed'
-#  To sort by title or other variables use {% assign sorted_posts = category[1] | sort: 'title' %}
-#
-# Original: {%- for category in site.categories -%}
-{% endcomment %}
-
 {% assign sorted_cats = site.categories | sort %}
 {%- for category in sorted_cats -%}
   <a href="#{{ category[0] }}"><h3 style="display:inline;">{{ category[0] }}</h3></a>
