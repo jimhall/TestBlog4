@@ -21,8 +21,8 @@ title: Tags
   <a name="{{ tag[0] }}"><h3 style="display:inline;">{{ tag[0] }}</h3></a>
   <!-- <a href="{{ tag[0] | prepend: 'tags/' | relative_url }}"><h3>{{ tag[0] }}</h3></a> -->
   <!-- <a href="{{ tag[0] | prepend: 'tags/' | relative_url }}"><h4 style="display:inline;">(Dedicated page for {{ tag[0] }})</h4></a> -->
-  <!-- <a href="{{ tag[0] | prepend: 'tags/' | relative_url }}"><h4 style="display:inline;"><img src="{{ '/assets/images/arrow-58-32.png' | relative_url }}" alt="Dedicated page for {{ tag[0] }}"</img></h4></a> -->
-  <a href="{{ tag[0] | prepend: 'tags/' | relative_url }}"><h4 style="display:inline;"><img src="{{ '/assets/images/arrow-58-32.png' | relative_url }}"</img></h4></a> 
+  <a href="{{ tag[0] | prepend: 'tags/' | relative_url }}"><h4 style="display:inline;"><img src="{{ '/assets/images/arrow-58-32.png' | relative_url }}" alt="Dedicated page for {{ tag[0] }}"></h4></a>
+  <!-- <a href="{{ tag[0] | prepend: 'tags/' | relative_url }}"><h4 style="display:inline;"><img src="{{ '/assets/images/arrow-58-32.png' | relative_url }}"</h4></a> -->
   <ul>
     {%- for post in tag[1] -%}
       <li><a href="{{ post.url| relative_url }}">{{ post.title }}</a></li>
