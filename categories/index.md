@@ -19,7 +19,7 @@ title: Categories
 {%- for category in site.categories -%}
   <a name="{{ category[0] }}"><h3 style="display:inline;">{{ category[0] }}</h3></a>
   <a href="{{ category[0] | prepend: 'categories/' | relative_url }}">
-    <h4 style="display:inline;">(Dedicated page for {{ category[0] }})
+    <h4 style="display:inline;">
         <img src="{{ '/assets/images/arrow-58-32.png' | relative_url }}" width="24" height="24" alt="Dedicated page for {{ category[0] }}">
     </h4>
   </a>
