@@ -15,3 +15,7 @@ eleventh very simple post for part 4 for eleventh post.
 Here is some more content. Fun right?
 Testing one two three github actions is now working
 With a little sleep superheroes. Thor icon added
+
+Here is a code snippet:
+
+<script src="http://gist-it.appspot.com/https://github.com/jimhall/TestBlog4/blob/2940b1ea9eab23144b19023b949538d2614e37f8/scripts/test.py#L21-L24"></script>
