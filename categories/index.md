@@ -18,7 +18,7 @@ title: Categories
 <p></p>
 
 <div class="catcloud">
-{%- for category in site.categories -%}
+{%- for category in sorted_cats -%}
   <a name="{{ category[0] }}"><h3 style="display:inline;">{{ category[0] }}</h3></a>
   <a href="{{ category[0] | prepend: 'categories/' | relative_url }}">
     <h4 style="display:inline;">
