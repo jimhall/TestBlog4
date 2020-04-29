@@ -16,8 +16,6 @@ Here is some more content. Fun right?
 Testing one two three github actions is now working
 With a little sleep superheroes. Thor icon added
 
-<script src="https://gist.github.com/jonschlinkert/5854601.js"></script>
-
 Here is a code snippet:
 
 <script src="https://gist.github.com/jimhall/4de3ea6d452d9e946ce75fb6a70ec47b.js"></script>
