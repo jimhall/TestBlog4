@@ -8,7 +8,9 @@ title: Tags
 # Tags listing
 
 <div class="catcloud">
-{%- for tag in site.tags -%}
+<!-- Source for sorted categories: https://gist.github.com/Phlow/57eb457898e4ac4c4a20 -->
+{% assign sorted_tags = site.tags | sort %}
+{%- for tag in sorted_tags -%}
   <a href="#{{ tag[0] }}"><h3 style="display:inline;">{{ tag[0] }}</h3></a>
   <!-- <a href="{{ tag[0] | prepend: 'tags/' | relative_url }}"><h3 style="display:inline;">{{ tag[0] }}</h3></a> -->
 {% endfor %}
@@ -17,7 +19,7 @@ title: Tags
 <p></p>
 
 <div class="catcloud">
-{%- for tag in site.tags -%}
+{%- for tag in sorted_tags -%}
   <a name="{{ tag[0] }}"><h3 style="display:inline;">{{ tag[0] }}</h3></a>
   <a href="{{ tag[0] | prepend: 'tags/' | relative_url }}">
     <h4 style="display:inline;">
