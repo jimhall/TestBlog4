@@ -23,7 +23,7 @@ title: Tags
 <!--  <a href="{{ tag[0] | prepend: 'tags/' | relative_url }}"><h4 style="display:inline;">(Dedicated page for {{ tag[0] }})</h4></a> -->
   <a href="{{ tag[0] | prepend: 'tags/' | relative_url }}">
     <h4 style="display:inline;">
-        <img src="/assets/images/arrow-58-32.png | relative_url" alt="Dedicated page for {{ tag[0] }}"</img>
+        <img src="{{ /assets/images/arrow-58-32.png | relative_url}}" alt="Dedicated page for {{ tag[0] }}"</img>
     </h4>
   </a> 
   <ul>
