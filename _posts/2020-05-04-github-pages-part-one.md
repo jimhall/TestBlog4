@@ -12,15 +12,25 @@ In what I believe to be a very "meta move", my first blog post will be about
 how I created this blog. I found creating this site to be a trivial activity,
 but as with a lot of activities, the first 80% was the easy part. The last 20%
 then turned into consumption of a lot of "spare time" reading random blog posts and code to
-get to me being comfortable with publishing something. This post is part of
+get to comfortable with publishing something. This post is part of
 series that documents the journey, in the hopes that it will be easier for
 others.
 
 <!--more-->
 
-# Getting Started with GitHub Pages
+## Overall Task Map (checked items in this post)
 
-## Why GitHub Pages?
+- [x] Review relevant GitHub Labs
+- [x] Read/skim the GitHub Pages docs
+- [x] Familiarize the supported Jekyll theme versions and plug-ins
+- [x] Read/skim the Jekyll docs
+- [x] Create the GitHub repo for your site (e.g [https://jimhall.github.io](https://jimhall.github.io)
+
+
+
+## Why I chose GitHub Pages and first steps
+
+### Why GitHub Pages?
 
 My reasoning for choosing GitHub Pages is as follows:
 
@@ -31,7 +41,7 @@ My reasoning for choosing GitHub Pages is as follows:
 - No wish to manage any infrastructure on my part
 - No DNS to manage with a reasonable name for the blog.
 
-## Leverage GitHub Labs
+### Leverage GitHub Labs
 
 As I started looking at using GitHub, I got a wee-bit overwhelmed with all the
 websites and youtube videos trying 
