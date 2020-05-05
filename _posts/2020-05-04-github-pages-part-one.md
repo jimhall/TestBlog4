@@ -20,11 +20,11 @@ others.
 
 ## Overall Task Map (checked items in this post)
 
-- [x] Review relevant GitHub Labs
-- [x] Read/skim the GitHub Pages docs
+[x] Review relevant GitHub Labs
+[x] Read/skim the GitHub Pages docs
 - [x] Familiarize the supported Jekyll theme versions and plug-ins
 - [x] Read/skim the Jekyll docs
-- [x] Create the GitHub repo for your site (e.g [https://jimhall.github.io](https://jimhall.github.io)
+- [x] Create the GitHub repo for your site (e.g [https://jimhall.github.io](https://jimhall.github.io))
 
 
 
