@@ -20,11 +20,11 @@ others.
 
 ## Overall Task Map (checked items in this post)
 
-    - [x] Review relevant GitHub Labs
-    - [x] Read/skim the GitHub Pages docs
-    - [x] Familiarize the supported Jekyll theme versions and plug-ins
-    - [x] Read/skim the Jekyll docs
-    - [x] Create the GitHub repo for your site (e.g [https://jimhall.github.io](https://jimhall.github.io))
+- [x] Review relevant GitHub Labs
+- [x] Read/skim the GitHub Pages docs
+- [x] Familiarize the supported Jekyll theme versions and plug-ins
+- [x] Read/skim the Jekyll docs
+- [x] Create the GitHub repo for your site (e.g [https://jimhall.github.io](https://jimhall.github.io))
 
 ## Why I chose GitHub Pages and first steps
 
@@ -45,13 +45,14 @@ As I started looking at using GitHub, I got a wee-bit overwhelmed with all the
 websites and youtube videos trying to sort things out with git and GitHub
 pages.
 
-Luckily I will not be writing up yet another git 101 blog page. I recommend
+Luckily I will not be writing up yet another git & GitHub Pages 101 blog page. I recommend
 that you leverage the following three [GitHub Labs](https://lab.github.com):
 
 - [Introduction to GitHub](https://lab.github.com/githubtraining/introduction-to-github)
 
 The lab focused on the basics of git in an interactive way: create clone,edit
-files, commit changes, push to the repo and open a pull request.
+files, commit changes, push to the repo and open a pull request. Options to
+use either the website or ssh // command line.
 
 - [Communicating using Markdown](https://lab.github.com/githubtraining/communicating-using-markdown)
 
@@ -61,3 +62,6 @@ Quick Markdown basics course.
 
 How to enable GitHub Pages, choose themes, YAML front matter, create and edit
 blog posts.
+
+There was a minimal time investment (about 30 minutes a lab) and it was
+enough to at least get going.
