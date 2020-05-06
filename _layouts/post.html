@@ -3,7 +3,7 @@ layout: default
 ---
 <!-- https://www.w3schools.com/howto/howto_css_bullet_color.asp -->
 <style>
-ul.task-list li.task-list {
+ul.task-list {
   list-style: none; /* Remove default bullets */
   list-style-image: url("/TestBlog4/assets/images/black-dot.png");
 }
@@ -14,6 +14,9 @@ ul.task-list li::before {
   display: inline-block; /* Needed to add space between the bullet and the text */
   width: 1em; /* Also needed for space (tweak if needed) */
   margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+li.task-list-item {
+  list-style-image: url("/TestBlog4/assets/images/black-dot.png");
 }
 </style>
 
