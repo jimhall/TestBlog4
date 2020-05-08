@@ -27,6 +27,12 @@ the journey, in the hopes that it will be easier for others.
 - [x] Read/skim the Jekyll docs
 - [x] Get Familiarthe supported Jekyll theme versions and plug-ins
 - [x] Create the GitHub repo for your site (e.g [https://jimhall.github.io](https://jimhall.github.io))
+- [ ] Create directory structure for blogging
+- [ ] Review _includes requirements
+- [ ] Review _layouts requirements
+- [ ] Review _sass requirements
+- [ ] Create an index.md
+- [ ] 
 
 ## Why Pick GitHub Pages and First Steps
 
@@ -95,7 +101,8 @@ VERY IMPORTANT: Review the [GitHub Dependency versions](https://pages.github.com
   is at release 0.1.1 at the time of writing. Get familiar and bookmark the
   repo that you choose. You will likely hit display bugs and you will want to
   refer to the source on occasion. Also you may want to understand the
-  differences between the verision supported by GitHub pages versus what 
+  differences between the verision supported by GitHub pages versus what is
+  available on HEAD/master.
 - Try to get a sense of the various Jekyll plug-ins. You do not have to be a
   Ruby expert (one huge positive out of this experience is that in spite of
   the challenges and bugs I hit, *none* resulted in me touching any ruby).
