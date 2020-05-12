@@ -20,6 +20,9 @@ reading random blog posts and code to get to comfortable with
 publishing something. This post is part of series that documents
 the journey, in the hopes that it will be easier for others.
 
+Take a look at the [ghpages tag page](https://jimhall.github.io/tags/ghpages)
+for all the posts in this series.
+
 ## Overall Task Map (checked items in this post)
 
 - [x] Review relevant GitHub Labs
@@ -27,6 +30,7 @@ the journey, in the hopes that it will be easier for others.
 - [x] Read/skim the Jekyll docs
 - [x] Get Familiarthe supported Jekyll theme versions and plug-ins
 - [x] Create the GitHub repo for your site (e.g [https://jimhall.github.io](https://jimhall.github.io))
+- [x] Plan out a development model to update your site
 - [ ] Create directory structure for blogging
 - [ ] Review _includes requirements
 - [ ] Review _layouts requirements
@@ -115,7 +119,27 @@ At the time of this writing, review [this intro
 page](https://pages.github.com) on creating your _username_.github.io page.
 Really straight forward to at least get started.
 
+
+### Plan out a development model to update your site
+
+The best practice suggested by GitHub Pages for development of your site is
+to:
+
+- Clone a copy of the repo onto the desktop you will develop on
+- Install a copy of Jekyll on your local system and all the plug-ins being
+  used. This includes getting Ruby up and running.
+- Create your content and use you browser to view how the pages are rendering
+  and when satisfied push/upload the content to GitHub and make sure it works
+  there
+
+I did not do this. I simply created _another_ repo,
+[TestBlog4](https://jimhall.github.io/TestBlog4), ```git clone``` that to my
+desktop and created my content (and eventually the entire site including
+changes to the theme). I found this easier than mangaging an install on my
+laptop. It also eliminates the "what changed? -- my laptop or GitHub?".
+
 So that is the baseline. There is a chance that if you follow the step above
 about creating the base website, and already understand git, you will not have
 to go to crazy on reviewing the documentation, you could dive into my next
-post and just get going with blogging with GitHub pages.
+post and just get going with blogging with GitHub Pages. Create a _posts
+directory and start posting content to GitHub Pages.
