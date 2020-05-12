@@ -36,7 +36,6 @@ for all the posts in this series.
 - [ ] Review _layouts requirements
 - [ ] Review _sass requirements
 - [ ] Create an index.md
-- [ ] 
 
 ## Why Pick GitHub Pages and First Steps
 
@@ -50,6 +49,7 @@ My reasoning for choosing GitHub Pages is as follows:
 - Secure: specifically use of SSL out of the box without me managing certs
 - No wish to manage any infrastructure on my part
 - No DNS to manage with a reasonable name for the blog.
+- GitHub Gist integration using a Jekyll plug-in _built in_ to GitHub Pages.
 
 ### Leverage GitHub Labs
 
