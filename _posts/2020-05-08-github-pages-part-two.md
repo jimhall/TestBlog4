@@ -48,6 +48,13 @@ screens" (stacks of small picture tube monitors using phosphorescence to
 
 ![Green Screen Image](https://jimhall.github.io/assets/images/greenscreen.png)
 
+While I was attracted to the aesthetics of the theme, in hindsite I probably
+should have picked a more complete theme like
+[jekyll-theme-minimal](https://rubygems.org/gems/jekyll-theme-minimal).
+Ironically, `jekyll-theme-hacker` was more "minimal" then
+`jekyll-theme-minimal` in terms of the information it would display that would
+be helpful for blog site. On the bright side, the lack of display
+functionality helped capture a lot steps below on how to create a blog site.
 
 ## Create Directory Structure for Blogging
 
@@ -99,4 +106,19 @@ categories
       |_ index.md
 ```
 
+#### Table Describing Diagram
+
+| File or Dir | Description                                                |
+| ----------- | --------------                                             |
+| [README.md](https://github.com/jimhall/jimhall.github.io/blob/master/README.md)     | Standard repo description of site. I use it as a changelog  |
+| [.gitignore](https://github.com/jimhall/jimhall.github.io/blob/master/.gitignore)   | Since on a Macbook I skip all the .DS* files                |
+| [_config.yml](https://github.com/jimhall/jimhall.github.io/blob/master/_config.yml) | Jekyll config file                                          |
+| [index.md](https://github.com/jimhall/jimhall.github.io/blob/master/index.md)       | Jekyll compiles/changes into index.html                     |
+| [favicon.ico](https://github.com/jimhall/jimhall.github.io/blob/master/favicon.ico) | Graphic for bookmarks and URL bar                           |
+| [about.md](https://github.com/jimhall/jimhall.github.io/blob/master/about.md)       | Jekyll compiles/changes into about.html (who am i?)         |
+| [_includes/head.html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes/head.html) | Jekyll template for `<head>` html metadata |
+| [_includes/footer.html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes/footer.html) | Jekyll template for `<footer>` (shown at the bottom of every page on my site) |
+| [_includes/header.html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes/header.html) | Jekyll template for `<header>` (shown at the top of every page on my site) |
+| [archive/index.md](https://github.com/jimhall/jimhall.github.io/blob/master/archive/index.md) | Jekyll template that generates a date sorted list of my blog posts |
+| [_posts](https://github.com/jimhall/jimhall.github.io/blob/master/_posts) | Blog posts in markdown format that are then compiled into an html page |
 
