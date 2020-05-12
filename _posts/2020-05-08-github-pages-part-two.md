@@ -4,7 +4,7 @@ title: "GitHub Pages 2020: Foundational Directories and Files (Part II)"
 date: 2020-05-08
 categories: [blog, computing]
 tags: [ghpages, jekyll]
-image: "https://jimhall.github.io/assets/images/35-cents.png"
+image: "https://jimhall.github.io/assets/images/greenscreen.png"
 excerpt_separator: <!--more-->
 ---
 
@@ -30,13 +30,26 @@ for all the posts in this series.
 - [ ] Get Familiarthe supported Jekyll theme versions and plug-ins
 - [ ] Create the GitHub repo for your site (e.g [https://jimhall.github.io](https://jimhall.github.io))
 - [ ] Plan out a development model to update your site
+- [x] Theme choice: an aside
 - [x] Create directory structure for blogging
 - [x] Review _includes requirements
 - [x] Review _layouts requirements
 - [x] Review _sass requirements
 - [x] Create an index.md
 
-## Key File and Directory Creation
+## Theme Choice: An Aside
+
+As mentioned above, I picked one of the default Jekyll theme's for GitHub
+Pages called `jekyll-theme-hacker`. The black background and green font
+reminded me of my days starting out building and designing trading floors for
+financial services companies. When I first started the transition form "green
+screens" (stacks of small picture tube monitors using phosphorescence to
+"light up" the screen). Think the movie Wall Street (see below):
+
+![Green Screen Image](https://jimhall.github.io/assets/images/greenscreen.png)
+
+
+## Create Directory Structure for Blogging
 
 Strictly speaking, most of the steps below are optional. As mentioned in
 [Part
@@ -62,7 +75,7 @@ _includes
 archive
       |_ index.md
 _posts
-      |_ 2020-04-28-thirteenth-post.md
+      |_ <various posts reside here>
 _layouts
       |_ post.html
       |_ tags.html
