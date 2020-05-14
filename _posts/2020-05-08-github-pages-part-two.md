@@ -214,4 +214,77 @@ repo](https://github.com/tocttou/hacker-blog). Here are some notes:
   Added only Twitter and GitHub icon at the base of the page. Additionally,
   added a [license and a copyright date using Liquid Tags](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_includes/footer.html#L22-L26)) `capture` tag.
 
+## Review `_layouts` requirements
 
+Looking at other example websites, I used `_includes` file for fundamental
+page section that apply to all page types, and I used `_layouts` to control
+how a page type is displayed. `default.html` layout contained the components
+with the most commonality. I will walk through post.html in detail, other
+layouts are very similar.
+
+Here is a code 
+
+```markdown
+  1 ---
+  2 layout: default
+  3 ---
+  4 <!-- https://www.w3schools.com/howto/howto_css_bullet_color.asp -->
+  5 <style>
+  6 ul.task-list {
+  7   list-style: none; /* Remove default bullets */
+  8 }
+  9 ul.task-list li::before {
+ 10   content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+ 11   color: #151515; /* Change the color */
+ 12   font-weight: bold; /* If you want it to be bold */
+ 13   display: inline-block; /* Needed to add space between the bullet and the text */
+ 14   width: 1em; /* Also needed for space (tweak if needed) */
+ 15   margin-left: -3.5em; /* Also needed for space (tweak if needed) */
+ 16 }
+ 17 li.task-list-item {
+ 18   list-style-image: url("{{ '/assets/images/black-dot.png' | relative_url }}");
+ 19 }
+ 20 </style>
+ 21
+ 22 <small>{{ page.date | date: "%-d %B %Y" }}</small>
+ 23 <h1>{{ page.title }}</h1>
+ 24
+ 25 <p class="view">by {{ page.author | default: site.author }}</p>
+ 26
+ 27 {{content}}
+ 28
+ 29 <!-- Please see:
+ 30      https://stackoverflow.com/questions/34568011/add-an-element-on-the-last-jekyll-loop-of-posts
+ 31      Regarding the use of forloop.last
+ 32
+ 33      Please see:
+ 34      https://stackoverflow.com/questions/52250168/url-string-interpolation-with-liquid-tags-jekyl
+ 35      Regarding the prepend concept to muck with URLs-->
+ 36
+ 37 <div>
+ 38 {% if page.categories %}
+ 39 <small>categories:
+ 40 {% for categories in page.categories %}
+ 41   {% if forloop.last == false %}
+ 42     <em><a href="{{ categories | prepend: 'categories/' | relative_url }}">{{ categories }}</a></em> -
+ 43   {% else %}
+ 44     <em><a href="{{ categories | prepend: 'categories/' | relative_url }}">{{ categories }}</a></em>
+ 45   {% endif %}
+ 46 {% endfor %}
+ 47 {% endif %}
+ 48 </small>
+ 49 </div>
+ 50 <div>
+ 51 {% if page.tags %}
+ 52 <small>tags:
+ 53 {% for tags in page.tags %}
+ 54   {% if forloop.last == false %}
+ 55     <em><a href="{{ tags | prepend: 'tags/' | relative_url }}">{{ tags }}</a></em> -
+ 56   {% else %}
+ 57     <em><a href="{{ tags | prepend: 'tags/' | relative_url }}">{{ tags }}</a></em>
+ 58   {% endif %}
+ 59 {% endfor %}
+ 60 {% endif %}
+ 61 </small>
+ 62 </div>
+```
