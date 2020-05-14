@@ -209,13 +209,3 @@ repo](https://github.com/tocttou/hacker-blog). Here are some notes:
   blog, major site links and an RSS icon.
 
 ### [_includes/footer.html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes/footer.html)
-
-- Leveraged the
-  [jekyll-theme-minimal](https://rubygems.org/gems/jekyll-theme-minimal) SVG
-  file for [social media icons
-  minima-social-icons.svg](https://github.com/jimhall/jimhall.github.io/tree/master/assets/images). 
-  Added only Twitter and GitHub icon at the base of the page. Additionally,
-  added a [license and a copyright date using Liquid Tags {% capture %}
-  tag](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_includes/footer.html#L22-L26)).
-
-
