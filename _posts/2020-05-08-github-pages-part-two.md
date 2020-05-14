@@ -182,3 +182,25 @@ files for the `<head>`, `<header>` and `<footer>` sections of the
 sites web pages and just keep it consistent. Leveraged the idea from the work
 of @tocttou and their [hacker-blog
 repo](https://github.com/tocttou/hacker-blog). Here are some notes:
+
+### [_includes/head.html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes/head.html)
+
+- Created a lame logo for my site and used [Real Favicon
+  Generator](https://realfavicongenerator.net) and dropped in the suggested
+  meta tags [here](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_includes/head.html#L9-L20)
+
+- Added meta tags for social media referring to a [css-tricks
+  article](https://css-tricks.com/essential-meta-tags-social-media/) and
+  dropped the code
+  [here](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_includes/head.html#L21-L29).
+  I created a liquid tag called `{{ page.image }}` that gets added to the
+  Jekyll Front Matter as `image:<image name>` in each blog post.
+
+- I added `{% feed_meta %} {% seo %}` liquid tags so that [jekyll-feed
+  plug-in](https://www.rubydoc.info/gems/jekyll-feed/0.13.0) and search engine
+  optimization is in place.
+
+- [Added a Google Analytics fragment per this
+  website](https://desiredpersona.com/google-analytics-jekyll/) at [this
+  location](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_includes/head.html#L37-L48)
+
