@@ -174,3 +174,6 @@ me walk through my methods and thought process below.
   - doo
 2. banana
 3. duh
+
+- new
+  1. blew
