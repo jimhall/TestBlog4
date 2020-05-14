@@ -222,9 +222,30 @@ how a page type is displayed. `default.html` layout contained the components
 with the most commonality. I will walk through post.html in detail, other
 layouts are very similar.
 
-Here is a code snippet:
+Here is a gist of post.html:
 
 <script src="https://gist.github.com/jimhall/34875350ddd3fb87f37cedf44a505f73.js"></script>
+
+### Code Highlights:
+
+- [Lines 5 & 6](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_layouts/post.html#L5-L6) 
+  display the `page.date` and `page.title` using the Jekyll Front Matter at
+  the top of a blog post markdown file.
+- [Line 8](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_layouts/post.html#L8)
+  displays an author name.
+- [Line
+  10](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_layouts/post.html#L10)
+  inlines the actual blog post content.
+- [Line 21 -
+  30](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_layouts/post.html#L21-L43)
+  Creates a tag line and categories line based on Front Matter `categories`
+  and `tags:` at the top of a blog post markdown file.
+
+### Other Layouts'
+
+The other layouts have similar logic, I will detail in follow on posts
+
+
 
 
 
