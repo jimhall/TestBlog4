@@ -33,9 +33,9 @@ for all the posts in this series.
 - [x] Theme choice: an aside
 - [x] Create directory structure for blogging
 - [x] Understanding How Pages Get Built
-- [x] Review _includes requirements
-- [x] Review _layouts requirements
-- [x] Review _sass requirements
+- [x] Review of _includes code considerations
+- [x] Review _layouts code considerations
+- [x] Review _sass code considerations
 - [x] Create an index.md
 
 ## Theme Choice: An Aside
@@ -43,9 +43,9 @@ for all the posts in this series.
 As mentioned above, I picked one of the default Jekyll theme's for GitHub
 Pages called `jekyll-theme-hacker`. The black background and green font
 reminded me of my days starting out building and designing trading floors for
-financial services companies. When I first started the transition form "green
+financial services companies. When I first started the transition from "green
 screens" (stacks of small picture tube monitors using phosphorescence to
-"light up" the screen). Think the movie Wall Street (see below):
+"light up" the screen) to PCs and ethernet was kicking off. Think the movie Wall Street (see below):
 
 ![Green Screen Image](https://jimhall.github.io/assets/images/greenscreen.png)
 
@@ -134,24 +134,25 @@ me walk through my methods and thought process below.
 
 - Blog Posts
 
-  1. Write the blog post in the _posts directory with Markdown. Add [Front
-  Matter](https://jekyllrb.com/docs/front-matter/) keyword ```layout: post```.
-  This means it will refer to
-  [_layouts/post.html](https://github.com/jimhall/jimhall.github.io/blob/master/_layouts/post.html)
-  to begin the process of creating the blog post html. ```post.html``` also
-  has some html to set page date, title, and some [Jekyll
-  Liquid](https://jekyllrb.com/docs/liquid/) to display category and tags.
-  2. ```_layouts/post.html``` refers to
-  [_layouts/default.html](https://github.com/jimhall/jimhall.github.io/blob/master/_layouts/default.html).
-  ```_layouts/default.html``` with some simple html and [Jekyll Liquid include
-  tags](https://jekyllrb.com/docs/includes/) to build the ```<head>```,
-  ```<header>``` and ```<footer>``` sections of the html doc. 
-  3.  [_includes/[head|header|footer].html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes) contain the html that will
-  render the relevant section of the html document for the site.
+1. Write the blog post in the _posts directory with Markdown. Add [Front
+Matter](https://jekyllrb.com/docs/front-matter/) keyword ```layout: post```.
+This means it will refer to
+[_layouts/post.html](https://github.com/jimhall/jimhall.github.io/blob/master/_layouts/post.html)
+to begin the process of creating the blog post html. ```post.html``` also
+has some html to set page date, title, and some [Jekyll
+Liquid](https://jekyllrb.com/docs/liquid/) to display category and tags.
+2. ```_layouts/post.html``` refers to
+[_layouts/default.html](https://github.com/jimhall/jimhall.github.io/blob/master/_layouts/default.html).
+```_layouts/default.html``` with some simple html and [Jekyll Liquid include
+tags](https://jekyllrb.com/docs/includes/) to build the ```<head>```,
+```<header>``` and ```<footer>``` sections of the html doc. 
+3.  [_includes/[head|header|footer].html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes) contain the html that will
+render the relevant section of the html document for the site.
 
 - The Blog Archive Page
 
-1. [archive/index.md](https://github.com/jimhall/jimhall.github.io/blob/master/archive)
+1.
+[archive/index.md](https://github.com/jimhall/jimhall.github.io/blob/master/archive/index.md)
 contains the [FrontMatter](https://jekyllrb.com/docs/front-matter/) keyword
 ```layout: archive```. This page is using some Jekyll Liquid for a loop that lists
 all the posts put up on the site so far.
@@ -173,5 +174,49 @@ calls [Front Matter](https://jekyllrb.com/docs/front-matter/) keyword ```layout:
 default```. 
 2. Similar rendering as seen in step three for blog posts for aspects of the
 standard html doc for the site.
+
+## Review _includes requirements
+
+When building the site, it seemed to make most sense to have separate include
+files for the ```<head>```, ```<header>``` and ```<footer>``` sections of the
+sites web pages and just keep it consistent. Leveraged the idea from the work
+of @tocttou and their [hacker-blog
+repo](https://github.com/tocttou/hacker-blog). Here are some notes:
+
+### [_includes/head.html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes/head.html)
+
+- Created a lame logo for my site and used [Real Favicon
+  Generator](https://realfavicongenerator.net) and dropped in the suggested
+  meta tags [here](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_includes/head.html#L9-L20)
+
+- Added meta tags for social media referring to a [css-tricks
+  article](https://css-tricks.com/essential-meta-tags-social-media/) and
+  dropped the code
+  [here](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_includes/head.html#L21-L29).
+  I created a liquid tag called ```{{ page.image }}``` that gets added to the
+  Jekyll Front Matter as ```image:<image name>``` in each blog post.
+
+- I added ```{% feed_meta %} {% seo %}``` liquid tags so that [jekyll-feed
+  plug-in](https://www.rubydoc.info/gems/jekyll-feed/0.13.0) and search engine
+  optimization is in place.
+
+- [Added a Google Analytics fragment per this
+  website](https://desiredpersona.com/google-analytics-jekyll/) at [this
+  location](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_includes/head.html#L37-L48)
+
+### [_includes/header.html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes/header.html)
+
+- Creates the standard top part ```<header>``` for the site with title of the
+  blog, major site links and an RSS icon.
+
+### [_includes/footer.html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes/footer.html)
+
+- Leveraged the
+  [jekyll-theme-minimal](https://rubygems.org/gems/jekyll-theme-minimal) SVG
+  file for [social media icons
+  minima-social-icons.svg](https://github.com/jimhall/jimhall.github.io/tree/master/assets/images). 
+  Added only Twitter and GitHub icon at the base of the page. Additionally,
+  added a [license and a copyright date using Liquid Tags {% capture %}
+  tag](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_includes/footer.html#L22-L26)).
 
 
