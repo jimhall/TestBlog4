@@ -169,14 +169,7 @@ me walk through my methods and thought process below.
   2. Similar rendering as seen in step three for blog posts for aspects of the
   standard html doc for the site.
 
-1. foo
-  - loo
-  - doo
-2. banana
-3. duh
-
-- new
-1. blew
 
 - lester
+
 1. dexter
