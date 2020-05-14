@@ -177,3 +177,6 @@ me walk through my methods and thought process below.
 
 - new
 1. blew
+
+- lester
+1. dexter
