@@ -174,3 +174,11 @@ calls [Front Matter](https://jekyllrb.com/docs/front-matter/) keyword `layout:
 default`. 
 2. Similar rendering as seen in step three for blog posts for aspects of the
 standard html doc for the site.
+
+## Review `_includes` requirements
+
+When building the site, it seemed to make most sense to have separate include
+files for the `<head>`, `<header>` and `<footer>` sections of the
+sites web pages and just keep it consistent. Leveraged the idea from the work
+of @tocttou and their [hacker-blog
+repo](https://github.com/tocttou/hacker-blog). Here are some notes:
