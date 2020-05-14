@@ -170,5 +170,7 @@ me walk through my methods and thought process below.
   standard html doc for the site.
 
 1. foo
+  - loo
+  - doo
 2. banana
 3. duh
