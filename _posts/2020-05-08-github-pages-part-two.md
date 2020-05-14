@@ -104,12 +104,12 @@ categories
 
 | File or Dir | Description                                                |
 | ----------- | --------------                                             |
-| [README.md](https://github.com/jimhall/jimhall.github.io/blob/master/README.md)     | Standard repo description of site. I use it as a changelog  |
-| [.gitignore](https://github.com/jimhall/jimhall.github.io/blob/master/.gitignore)   | Since on a Macbook I skip all the .DS files                |
+| [`README.md`](https://github.com/jimhall/jimhall.github.io/blob/master/README.md)     | Standard repo description of site. I use it as a changelog  |
+| [`.gitignore`](https://github.com/jimhall/jimhall.github.io/blob/master/.gitignore)   | Since on a Macbook I skip all the .DS files                |
 | [`_config.yml`](https://github.com/jimhall/jimhall.github.io/blob/master/_config.yml) | Jekyll config file                                          |
-| [index.md](https://github.com/jimhall/jimhall.github.io/blob/master/index.md)       | Jekyll compiles/changes into index.html                     |
-| [favicon.ico](https://github.com/jimhall/jimhall.github.io/blob/master/favicon.ico) | Graphic for bookmarks and URL bar                           |
-| [about.md](https://github.com/jimhall/jimhall.github.io/blob/master/about.md)       | Jekyll compiles/changes into about.html (who am i?)         |
+| [`index.md`](https://github.com/jimhall/jimhall.github.io/blob/master/index.md)       | Jekyll compiles/changes into index.html                     |
+| [`favicon.ico`](https://github.com/jimhall/jimhall.github.io/blob/master/favicon.ico) | Graphic for bookmarks and URL bar                           |
+| [`about.md`](https://github.com/jimhall/jimhall.github.io/blob/master/about.md)       | Jekyll compiles/changes into about.html (who am i?)         |
 | [`_includes/head.html`](https://github.com/jimhall/jimhall.github.io/blob/master/_includes/head.html) | Jekyll template for `<head>` html metadata |
 | [`_includes/footer.html`](https://github.com/jimhall/jimhall.github.io/blob/master/_includes/footer.html) | Jekyll template for `<footer>` (shown at the bottom of every page on my site) |
 | [`_includes/header.html`](https://github.com/jimhall/jimhall.github.io/blob/master/_includes/header.html) | Jekyll template for `<header>` (shown at the top of every page on my site) |
