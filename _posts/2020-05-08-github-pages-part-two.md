@@ -185,7 +185,8 @@ repo](https://github.com/tocttou/hacker-blog). Here are some notes:
 
 ### _includes/[head.html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes/head.html)
 
-- Created a lame logo for my site and used [Real Favicon
+- Created a [lame
+  logo](https://github.com/jimhall/jimhall.github.io/tree/master/assets/images/favicon/jh-favico.svg) for my site and used [Real Favicon
   Generator](https://realfavicongenerator.net) and dropped in the suggested
   meta tags [here](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_includes/head.html#L9-L20)
 
