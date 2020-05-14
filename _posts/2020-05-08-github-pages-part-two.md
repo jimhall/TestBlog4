@@ -134,20 +134,20 @@ me walk through my methods and thought process below.
 
 - Blog Posts
 
-1. Write the blog post in the _posts directory with Markdown. Add [Front
-Matter](https://jekyllrb.com/docs/front-matter/) keyword ```layout: post```.
-This means it will refer to
-[_layouts/post.html](https://github.com/jimhall/jimhall.github.io/blob/master/_layouts/post.html)
-to begin the process of creating the blog post html. ```post.html``` also
-has some html to set page date, title, and some [Jekyll
-Liquid](https://jekyllrb.com/docs/liquid/) to display category and tags.
-2. ```_layouts/post.html``` refers to
-[_layouts/default.html](https://github.com/jimhall/jimhall.github.io/blob/master/_layouts/default.html).
-```_layouts/default.html``` with some simple html and [Jekyll Liquid include
-tags](https://jekyllrb.com/docs/includes/) to build the ```<head>```,
-```<header>``` and ```<footer>``` sections of the html doc. 
-3.  [_includes/[head|header|footer].html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes) contain the html that will
-render the relevant section of the html document for the site.
+  1. Write the blog post in the _posts directory with Markdown. Add [Front
+  Matter](https://jekyllrb.com/docs/front-matter/) keyword ```layout: post```.
+  This means it will refer to
+  [_layouts/post.html](https://github.com/jimhall/jimhall.github.io/blob/master/_layouts/post.html)
+  to begin the process of creating the blog post html. ```post.html``` also
+  has some html to set page date, title, and some [Jekyll
+  Liquid](https://jekyllrb.com/docs/liquid/) to display category and tags.
+  2. ```_layouts/post.html``` refers to
+  [_layouts/default.html](https://github.com/jimhall/jimhall.github.io/blob/master/_layouts/default.html).
+  ```_layouts/default.html``` with some simple html and [Jekyll Liquid include
+  tags](https://jekyllrb.com/docs/includes/) to build the ```<head>```,
+  ```<header>``` and ```<footer>``` sections of the html doc. 
+  3.  [_includes/[head|header|footer].html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes) contain the html that will
+  render the relevant section of the html document for the site.
 
 - The Blog Archive Page
 
@@ -175,7 +175,3 @@ default```.
 standard html doc for the site.
 
 
-- lester
-
-1. dexter
-  1. lou
