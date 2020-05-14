@@ -196,11 +196,26 @@ repo](https://github.com/tocttou/hacker-blog). Here are some notes:
   I created a liquid tag called `{{ page.image }}` that gets added to the
   Jekyll Front Matter as `image:<image name>` in each blog post.
 
-- I added `{% feed_meta %} {% seo %}` liquid tags so that [jekyll-feed
+- I added `{% feed_meta %}` and `{% seo %}` liquid tags so that [jekyll-feed
   plug-in](https://www.rubydoc.info/gems/jekyll-feed/0.13.0) and search engine
   optimization is in place.
 
-- [Added a Google Analytics fragment per this
-  website](https://desiredpersona.com/google-analytics-jekyll/) at [this
+- [Added a Google Analytics fragment](https://desiredpersona.com/google-analytics-jekyll/) at [this
   location](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_includes/head.html#L37-L48)
+
+### [_includes/header.html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes/header.html)
+
+- Creates the standard top part `<header>` for the site with title of the
+  blog, major site links and an RSS icon.
+
+### [_includes/footer.html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes/footer.html)
+
+- Leveraged the
+  [jekyll-theme-minimal](https://rubygems.org/gems/jekyll-theme-minimal) SVG
+  file for [social media icons
+  minima-social-icons.svg](https://github.com/jimhall/jimhall.github.io/tree/master/assets/images). 
+  Added only Twitter and GitHub icon at the base of the page. Additionally,
+  added a [license and a copyright date using Liquid Tags {% capture %}
+  tag](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_includes/footer.html#L22-L26)).
+
 
