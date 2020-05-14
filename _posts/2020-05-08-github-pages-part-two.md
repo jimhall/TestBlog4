@@ -2,7 +2,7 @@
 layout: post
 title: "GitHub Pages 2020: Foundational Directories and Files (Part II)"
 date: 2020-05-08
-categories: [blog, computing]
+categories: [blog, computing, github]
 tags: [ghpages, jekyll]
 image: "https://jimhall.github.io/assets/images/greenscreen.png"
 excerpt_separator: <!--more-->
@@ -32,6 +32,7 @@ for all the posts in this series.
 - [ ] Plan out a development model to update your site
 - [x] Theme choice: an aside
 - [x] Create directory structure for blogging
+- [x] Understanding How Pages Get Built
 - [x] Review _includes requirements
 - [x] Review _layouts requirements
 - [x] Review _sass requirements
@@ -59,8 +60,7 @@ functionality helped capture a lot steps below on how to create a blog site.
 ## Create Directory Structure for Blogging
 
 Strictly speaking, most of the steps below are optional. As mentioned in
-[Part
-I](https://jimhall.github.io/blog/computing/2020/05/04/github-pages-part-one.html),
+[Part I](https://jimhall.github.io/blog/computing/2020/05/04/github-pages-part-one.html),
 you _could_ create a blog entry in the _posts directory and have at it. But I
 take things a little bit further to create a more full featured blog.
 
@@ -91,17 +91,11 @@ _layouts
       |_ categories.html
 tags
       |_ index.md
-scripts
-      |_ tags-n-cats.py
 _sass
       |_ jekyll-theme-hacker-local.scss
       |_ jekyll-theme-hacker.scss
 assets
       |_ images
-           |_ favicon
-                 |_ <icons for site>
-           |_ arrow-58-32.png
-           |_ minima-social-icons.svg
 categories
       |_ index.md
 ```
@@ -119,6 +113,59 @@ categories
 | [_includes/head.html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes/head.html) | Jekyll template for `<head>` html metadata |
 | [_includes/footer.html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes/footer.html) | Jekyll template for `<footer>` (shown at the bottom of every page on my site) |
 | [_includes/header.html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes/header.html) | Jekyll template for `<header>` (shown at the top of every page on my site) |
-| [archive/index.md](https://github.com/jimhall/jimhall.github.io/blob/master/archive/index.md) | Jekyll template that generates a date sorted list of my blog posts |
+| [ archive/index.md](https://github.com/jimhall/jimhall.github.io/blob/master/archive/index.md) | Jekyll template that generates a date sorted list of my blog posts |
 | [_posts](https://github.com/jimhall/jimhall.github.io/blob/master/_posts) | Blog posts in markdown format that are then compiled into an html page |
+| [_layouts/post.html](https://github.com/jimhall/jimhall.github.io/blob/master/_layouts/post.html) | HTML that renders blog post |
+| [_layouts/tags.html](https://github.com/jimhall/jimhall.github.io/blob/master/_layouts/tags.html) | HTML that renders tag summary page post |
+| [_layouts/default.html](https://github.com/jimhall/jimhall.github.io/blob/master/_layouts/default.html) | HTML that is default rendering for a web page for the blog |
+| [_layouts/archive.html](https://github.com/jimhall/jimhall.github.io/blob/master/_layouts/archive.html) | HTML that renders the archive page |
+| [_layouts/categories.html](https://github.com/jimhall/jimhall.github.io/blob/master/_layouts/categories.html) | HTML that renders a category web page for the blog |
+| [tags/index.html](https://github.com/jimhall/jimhall.github.io/blob/master/tags/index.html) | HTML that renders a summary of tags web page for the blog |
+| [_sass/jekyll-theme-hacker.scss](https://github.com/jimhall/jimhall.github.io/blob/master/_sass/jekyll-theme-hacker.scss) | CSS & SASS from the default ```hacker``` theme |
+| [_sass/jekyll-theme-hacker-local.scss](https://github.com/jimhall/jimhall.github.io/blob/master/_sass/jekyll-theme-hacker-local.scss) | CSS & SASS from added by me |
+| [assets/images/](https://github.com/jimhall/jimhall.github.io/blob/master/assets/images/) | HTML that renders a summary of tags web page for the blog | 
+| [categories/index.md](https://github.com/jimhall/jimhall.github.io/blob/master/categories/index.md) | HTML that renders a summary of categories web page for the blog |
+
+## Understanding How Pages Get Built
+
+As I started to build some draft blog posts, I found it made sense to "break
+up" the rendering to avoid repeating markdown and html for various pages. Let
+me walk through my methods and thought process below.
+
+- Blog Posts
+  1. Write the blog post in the _posts directory with Markdown. Add [Front
+  Matter](https://jekyllrb.com/docs/front-matter/) keyword ```layout: post```.
+  This means it will refer to
+  [_layouts/post.html](https://github.com/jimhall/jimhall.github.io/blob/master/_layouts/post.html)
+  to begin the process of creating the blog post html. ```post.html``` also
+  has some html to set page date, title, and some [Jekyll
+  Liquid](https://jekyllrb.com/docs/liquid/) to display category and tags.
+  2. ```_layouts/post.html``` refers to
+  [_layouts/default.html](https://github.com/jimhall/jimhall.github.io/blob/master/_layouts/default.html).
+  ```_layouts/default.html``` with some simple html and [Jekyll Liquid include
+  tags](https://jekyllrb.com/docs/includes/) to build the ```<head>```,
+  ```<header>``` and ```<footer>``` sections of the html doc. 
+  3.  [_includes/[head|header|footer].html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes) contain the html that will
+  render the relevant section of the html document for the site.
+- The Blog Archive Page
+  1. [archive/index.md](https://github.com/jimhall/jimhall.github.io/blob/master/archive)
+  contains the [FrontMatter](https://jekyllrb.com/docs/front-matter/) keyword
+  ```layout: archive```. This page is using some Jekyll Liquid for a loop that lists
+  all the posts put up on the site so far.
+  2. The front matter in ```archive/index.md``` will pull in
+  [_layouts/archive.html](https://github.com/jimhall/jimhall.github.io/blob/master/_layouts/archive.html)
+  which has similar [Jekyll Liquid include
+  tags](https://jekyllrb.com/docs/includes/) as ```_layouts/default.html```,
+  just missing the ```<div>``` tag because are general content being developed
+  for the page.
+  3. Similar rendering as seen in step three for blog posts
+- Tags and Category posts
+  1.  [tags/index.md](https://github.com/jimhall/jimhall.github.io/blob/master/tags) and
+  [categories/index.md](https://github.com/jimhall/jimhall.github.io/blob/master/categories)
+  have [Jekyll Liquid logic](https://jekyllrb.com/docs/liquid/) that lists out
+  all the tags or categories and the blog posts associated with them. It also
+  calls [Front Matter](https://jekyllrb.com/docs/front-matter/) keyword ```layout:
+  default```. 
+  2. Similar rendering as seen in step three for blog posts for aspects of the
+  standard html doc for the site.
 
