@@ -2,7 +2,7 @@
 layout: post
 title: "GitHub Pages 2020: Getting Started (Part I)"
 date: 2020-05-04
-categories: [blog, computing]
+categories: [blog, computing, github]
 tags: [ghpages, jekyll, ghlabs]
 image: "https://jimhall.github.io/assets/images/1st-issue.png"
 excerpt_separator: <!--more-->
@@ -31,11 +31,21 @@ for all the posts in this series.
 - [x] Get Familiarthe supported Jekyll theme versions and plug-ins
 - [x] Create the GitHub repo for your site (e.g [https://jimhall.github.io](https://jimhall.github.io))
 - [x] Plan out a development model to update your site
+- [ ] Theme choice: an aside
 - [ ] Create directory structure for blogging
+- [ ] Understanding How Pages Get Built
 - [ ] Review _includes requirements
 - [ ] Review _layouts requirements
 - [ ] Review _sass requirements
 - [ ] Create an index.md
+- [x] Favorite Icon (favicon) Configured
+- [x] Add "Essential" Meta Tags
+- [x] Generate an RSS Feed
+- [x] Allow for Excerpts to be Displayed for Posts
+- [x] Add Content to Generate an Archive Page
+- [x] Liquid Logic Trick to Reduce Generation of Blank Lines in HTML
+- [x] Google Analytics Account Creation
+- [x] GitHub Actions: Auto-Generate Tag & Category Pages
 
 ## Why Pick GitHub Pages and First Steps
 
@@ -128,7 +138,7 @@ to:
 - Clone a copy of the repo onto the desktop you will develop on
 - Install a copy of Jekyll on your local system and all the plug-ins being
   used. This includes getting Ruby up and running.
-- Create your content and use you browser to view how the pages are rendering
+- Create your content and use your browser to view how the pages are rendering
   and when satisfied push/upload the content to GitHub and make sure it works
   there
 
