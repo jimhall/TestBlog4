@@ -16,7 +16,7 @@ a trivial activity, but as with a lot of things in life, the first
 <!--more-->
 
 The last 20% then turned into consumption of a lot of "spare time"
-reading random blog posts and code to get to comfortable with
+reading random blog posts and code to get comfortable with
 publishing something. This post is part of series that documents
 the journey, in the hopes that it will be easier for others.
 
@@ -38,14 +38,14 @@ for all the posts in this series.
 - [ ] Review _layouts requirements
 - [ ] Review _sass requirements
 - [ ] Create an index.md
-- [x] Favorite Icon (favicon) Configured
-- [x] Add "Essential" Meta Tags
-- [x] Generate an RSS Feed
-- [x] Allow for Excerpts to be Displayed for Posts
-- [x] Add Content to Generate an Archive Page
-- [x] Liquid Logic Trick to Reduce Generation of Blank Lines in HTML
-- [x] Google Analytics Account Creation
-- [x] GitHub Actions: Auto-Generate Tag & Category Pages
+- [ ] Favorite Icon (favicon) Configured
+- [ ] Add "Essential" Meta Tags
+- [ ] Generate an RSS Feed
+- [ ] Allow for Excerpts to be Displayed for Posts
+- [ ] Add Content to Generate an Archive Page
+- [ ] Liquid Logic Trick to Reduce Generation of Blank Lines in HTML
+- [ ] Google Analytics Account Creation
+- [ ] GitHub Actions: Auto-Generate Tag & Category Pages
 
 ## Why Pick GitHub Pages and First Steps
 
@@ -72,7 +72,7 @@ that you leverage the following three [GitHub Labs](https://lab.github.com):
 
 - [Introduction to GitHub](https://lab.github.com/githubtraining/introduction-to-github)
 
-The lab focused on the basics of git in an interactive way: create clone,edit
+The lab focused on the basics of git in an interactive way: create clone, edit
 files, commit changes, push to the repo and open a pull request. Options to
 use either the website or ssh // command line.
 
@@ -93,8 +93,8 @@ enough to at least get going.
 
 The [GitHub Pages documentation](https://help.github.com/en/github/working-with-github-pages) is
 pretty good. I just powered through it all and certainly did not absorb all
-the information. It also hopped around a bit and punted to the Jekyll docs a
-bit (see below) but some stuff stuck.
+the information. I also hopped around a bit and punted to the Jekyll docs a
+bit (see below) but some stuff stuck in this old brain.
 
 ### Read/skim the Jekyll Documentation
 
@@ -109,8 +109,8 @@ StackOverflow for answers.
 VERY IMPORTANT: Review the [GitHub Dependency versions](https://pages.github.com/versions/). Two key things to get smart on:
 
 - Get familiar with the theme version that you pick for your site. For
-  example, when I started this version with "hacker theme" for this site, it
-  is called
+  example, when I started this blog with "hacker theme" for this site, I
+  sorted out that it is called is called
   [jekyll-theme-hacker](https://rubygems.org/gems/jekyll-theme-hacker) and it
   is at release 0.1.1 at the time of writing. Get familiar and bookmark the
   repo that you choose. You will likely hit display bugs and you will want to
