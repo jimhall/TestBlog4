@@ -282,6 +282,7 @@ Here is a listing of the
 [index.md](https://github.com/jimhall/jimhall.github.io/blob/master/index.md) 
 I created for the blog site. 
 
+```
 {% raw %}
 ---
 layout: default
@@ -309,7 +310,7 @@ footer.
 
 <!-- End code @ index.md -->
 {% endraw %}
-
+```
 It does the following:
 
 - Uses the default layout
