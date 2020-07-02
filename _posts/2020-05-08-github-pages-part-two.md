@@ -308,6 +308,9 @@ footer.
 <!-- End code @ index.md -->
 {% endraw %}
 ```
+
+<script src="https://gist.github.com/jimhall/32fc862a0c96200beb362b658913c407.js"></script>
+
 It does the following:
 
 - Uses the default layout
