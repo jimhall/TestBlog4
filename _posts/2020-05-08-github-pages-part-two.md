@@ -282,7 +282,7 @@ Here is a listing of the
 [index.md](https://github.com/jimhall/jimhall.github.io/blob/master/index.md) 
 I created for the blog site. 
 
-```html
+```markdown
 ---
 layout: default
 title: Welcome to my blog
