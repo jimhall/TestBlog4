@@ -15,7 +15,7 @@ website. In my case I chose the theme "Hacker".
 <!--more-->
 
 I took a look at the directory to see what was created and it turned out to be
-a `_config.yml` file. The contents of the file had a single entry of `theme:
+a very lonely `_config.yml` file. The contents of the file had a single entry of `theme:
 jekyll-theme-hacker`. No other directories or files. This post addresses
 what directories and files I created to make a sane blog (in my opinion).
 
@@ -33,10 +33,18 @@ for all the posts in this series.
 - [x] Theme choice: an aside
 - [x] Create directory structure for blogging
 - [x] Understanding How Pages Get Built
-- [x] Review of `_includes` code considerations
-- [x] Review `_layouts` code considerations
-- [x] Review `_sass` code considerations
+- [x] Review of `_includes` requirements
+- [x] Review `_layouts` requirements
+- [x] Review `_sass` requirements
 - [x] Create an `index.md`
+- [ ] Favorite Icon (favicon) Configured
+- [ ] Add "Essential" Meta Tags
+- [ ] Generate an RSS Feed
+- [ ] Allow for Excerpts to be Displayed for Posts
+- [ ] Add Content to Generate an Archive Page
+- [ ] Liquid Logic Trick to Reduce Generation of Blank Lines in HTML
+- [ ] Google Analytics Account Creation
+- [ ] GitHub Actions: Auto-Generate Tag & Category Pages
 
 ## Theme Choice: An Aside
 
@@ -216,8 +224,8 @@ repo](https://github.com/tocttou/hacker-blog). Here are some notes:
 
 ## Review `_layouts` requirements
 
-Looking at other example websites, I used `_includes` file for fundamental
-page section that apply to all page types, and I used `_layouts` to control
+Looking at other example websites, I used `_includes` files for fundamental
+page sections that apply to all page types, and I used `_layouts` to control
 how a page type is displayed. `default.html` layout contained the components
 with the most commonality. I will walk through post.html in detail, other
 layouts are very similar.
@@ -233,20 +241,58 @@ Here is a gist of post.html:
   the top of a blog post markdown file.
 - [Line 8](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_layouts/post.html#L8)
   displays an author name.
-- [Line
-  10](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_layouts/post.html#L10)
+- [Line 10](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_layouts/post.html#L10)
   inlines the actual blog post content.
-- [Line 21 -
-  30](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_layouts/post.html#L21-L43)
+- [Line 20 - 32](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_layouts/post.html#L21-L43)
   Creates a tag line and categories line based on Front Matter `categories`
   and `tags:` at the top of a blog post markdown file.
 
-### Other Layouts'
+### Other Layouts
 
-The other layouts have similar logic, I will detail in follow on posts
+The other layouts have similar logic, I will detail in follow on posts.
+`_layouts/post.html` is probably the most complicated.
 
+## Review `_sass` requirements
 
+I am torn on the best approach regarding how to customize SASS and CSS with GitHub
+Pages. I will outline two approaches to customizing SASS: my current approach
+and alternate method that has potential advantages:
 
+### Current Approach
 
+- Grab a copy of the [jekyll-theme-hacker.scss] 
+  (https://github.com/pages-themes/hacker/blob/master/_sass/jekyll-theme-hacker.scss) 
+  from the `pages-themes/hacker` repo.
+- [Add a line to
+  jekyll-theme-hacker.scss](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_sass/jekyll-theme-hacker.scss#L3)
+  `@import "jekyll-theme-hacker-local";` and then create a file in the _sass
+  directory called jekyll-theme-hacker-local.scss and put your custom SASS in
+  that file.
+  
+### Alternate approach
 
+- Simple drop in `<script>` tags into the `_layouts` or `_includes` as
+  necessary and override the default SASS in the GitHub Pages theme. 
 
+Next post will show examples of both.
+
+## Create an index.md
+
+Here is a gist of the
+[index.md](https://github.com/jimhall/jimhall.github.io/blob/master/index.md) 
+I created for the blog site. 
+
+<script src="https://gist.github.com/jimhall/32fc862a0c96200beb362b658913c407.js"></script>
+
+It does the following:
+
+- Uses the default layout
+- Welcomes people with some text
+- Lines 15-23: Loops through all the posts currently on the site using some Jekyll Liquid
+  for loop using the `site.post` array, and then using the `post.excerpt`
+  variable to display an opening paragraph I have defined. I will describe
+  this in more detail in a follow on post.
+
+I am going to stop here as it gets a user to reasonable point. Stay tuned for
+the final post on this topic which brings GitHub Pages to what I consider to
+be a reasonable point for blogging.
