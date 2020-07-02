@@ -278,20 +278,46 @@ Next post will show examples of both.
 
 ## Create an index.md
 
-Here is a gist of the
+Here is a listing of the
 [index.md](https://github.com/jimhall/jimhall.github.io/blob/master/index.md) 
 I created for the blog site. 
 
-<script src="https://gist.github.com/jimhall/32fc862a0c96200beb362b658913c407.js"></script>
+```
+---
+layout: default
+title: Welcome to my blog
+---
+
+<!-- Begin code @ index.md -->
+
+# Welcome to my blog
+
+I'm glad you are here. Thanks for stopping by!
+
+Send constructive points or constructive criticism by clicking the social links in the
+footer.
+
+<ul>
+{% for post in site.posts %}
+  <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url | relative_url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+  <!--
+  <p>{{ post.content | strip_html | truncatewords:50 }}</p>
+  -->
+  {{ post.excerpt }}
+{% endfor %}
+</ul>
+
+<!-- End code @ index.md -->
+```
 
 It does the following:
 
 - Uses the default layout
 - Welcomes people with some text
-- Lines 15-23: Loops through all the posts currently on the site using some Jekyll Liquid
-  for loop using the `site.post` array, and then using the `post.excerpt`
-  variable to display an opening paragraph I have defined. I will describe
-  this in more detail in a follow on post.
+- Lines 15-23 (between the ul tags): Loops through all the posts currently
+  on the site using some Jekyll Liquid for loop using the `site.post` array, 
+  and then using the `post.excerpt` variable to display an opening paragraph 
+  I have defined. I will describe this in more detail in a follow on post.
 
 I am going to stop here as it gets a user to reasonable point. Stay tuned for
 the final post on this topic which brings GitHub Pages to what I consider to
