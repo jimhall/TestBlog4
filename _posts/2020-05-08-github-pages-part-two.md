@@ -282,7 +282,7 @@ Here is a listing of the
 [index.md](https://github.com/jimhall/jimhall.github.io/blob/master/index.md) 
 I created for the blog site. 
 
-```markdown
+{% raw %}
 ---
 layout: default
 title: Welcome to my blog
@@ -308,7 +308,7 @@ footer.
 </ul>
 
 <!-- End code @ index.md -->
-```
+{% endraw %}
 
 It does the following:
 
