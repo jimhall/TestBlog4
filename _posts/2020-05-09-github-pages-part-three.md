@@ -70,7 +70,7 @@ I added some liquid (`relative_url`) so that the generated html would have
 full URLs (it would not work otherwise).
 
 *SIDE NOTE*: I learned that in order for favicon to work it has to be at the
-"base" of URL (example: https://jimhall.github.io/favicon.ico). The
+"base" of the URL (example: https://jimhall.github.io/favicon.ico). The
 implication being that if you decide to enable GitHub Pages in a subdirectory
 off your base URL (example: https://jimhall.github.io/testrepo) and you place
 the favicon in the testrepo directory only it will not work. The favicon will
@@ -96,7 +96,8 @@ below](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a
 <meta property="twitter:image" content="{{ page.image | default: "https://jimhall.github.io/assets/images/favicon/apple-touch-icon.png" }}">
 ```
 
-Then I added a [jekyll Front Matter field] called `image:` to each post I want
+Then I added a [jekyll Front Matter
+field](https://jekyllrb.com/docs/front-matter/) called `image:` to each post I want
 to have custom image associated with the post. If I do not add the `image:`
 field to the post the liquid uses my default [logo image](https://jimhall.github.io/assets/images/favicon/apple-touch-icon.png)
 
@@ -127,15 +128,17 @@ From the dzhavat post mentioned above I added the following line to
 [head.html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes/head.html):
 
 ```html
+{% raw %}
 <link href="{{ '/feed.xml'| relative_url }}" type="application/atom+xml" rel="alternate"     title="{{ site.title }}"/>
+{% endraw %}
 ```
 
 The use of the `site.title` liquid tag gets dynamically generated with each
 post (which is a slight twist on the dzhavat blog).
 
-I added `{% feed_meta %}` to my
+I added `{% raw %}{% feed_meta %}{% endraw %}` to my
 [head.html](https://github.com/jimhall/jimhall.github.io/blob/master/_includes/head.html)
-right above the Search Engine Optimization liquid (`{% seo %}`) and it seems
+right above the Search Engine Optimization liquid (`{% raw %}{% seo %}{% endraw %}`) and it seems
 to work well. See "Meta tags" section of the jekyll-feed documentation (second
 source for details.
 
@@ -151,7 +154,7 @@ aggregator will use the image associated with the parameter.
 
 Not much to say here, just follow the docs. Here is a chunk of
 [index.md](https://raw.githubusercontent.com/jimhall/jimhall.github.io/master/index.md)
-that shows you can use the liquid `{{ post.excerpt }}` as the posts get lifted
+that shows you can use the liquid `{% raw %}{{ post.excerpt }}{% endraw %}` as the posts get lifted
 and all the text before `<!--more-->` gets displayed under the URL:
 
 ```
