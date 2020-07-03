@@ -158,12 +158,14 @@ that shows you can use the liquid `{% raw %}{{ post.excerpt }}{% endraw %}` as t
 and all the text before `<!--more-->` gets displayed under the URL:
 
 ```
+{% raw %}
 <ul>
 {% for post in site.posts %}
   <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url | relative_url }}" title="{{ post.title }}">{{ post.title }}</a></li>
   {{ post.excerpt }}
 {% endfor %}
 </ul>
+{% endraw %}
 ```
 
 ## Add Content to Generate an Archive Page
