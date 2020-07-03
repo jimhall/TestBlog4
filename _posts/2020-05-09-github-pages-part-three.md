@@ -254,11 +254,12 @@ way to create category and tag pages after each post is uploaded to the GitHub
 repository.
 
 Take a look at the [actions source
-file](https://github.com/jimhall/jimhall.github.io/blob/master/.github/workflows/main.yml).Here
-are the highlights of what it tries to do:
+file](https://github.com/jimhall/jimhall.github.io/blob/master/.github/workflows/main.yml). Here are the highlights of what it tries to do:
 
 - The GitHub Action is initiated when [a file is added to the `_posts`
-  directory](https://github.com/jimhall/jimhall.github.io/blob/9f110efedeb46e38d93c75a1ea44336f5ae77c45/.github/workflows/main.yml#L5-L11). 
+  directory](https://github.com/jimhall/jimhall.github.io/blob/9f110efedeb46e38d93c75a1ea44336f5ae77c45/.github/workflows/main.yml#L5-L11).
+  Benefit: other blog maintenance / file modifications will not trigger the
+  action, only blog posts will trigger the job.
 - It chooses to use [Ubuntu and a Python
   version](https://github.com/jimhall/jimhall.github.io/blob/9f110efedeb46e38d93c75a1ea44336f5ae77c45/.github/workflows/main.yml#L18-L23)
   to run the action
@@ -273,8 +274,68 @@ are the highlights of what it tries to do:
   task: $NEWCAT and $NEWTAG. The action then [runs some simple shell
   logic](https://github.com/jimhall/jimhall.github.io/blob/9f110efedeb46e38d93c75a1ea44336f5ae77c45/.github/workflows/main.yml#L81-L92)
   to determine if it is necessary to add the categories or tags to the repo.
-  see if any 
  
+Here is what the Python script does:
+
+- [Created a baseline
+  environment](https://github.com/jimhall/jimhall.github.io/blob/9f110efedeb46e38d93c75a1ea44336f5ae77c45/scripts/tags-n-cats.py#L44-L54).
+  [Grabbed some command line
+  arguments](https://realpython.com/python-command-line-arguments/), set the
+  blog site URL, set the encoding, created the Front Matter stencil for the
+  category and tag pages, and finally set the location of the temp file that
+  will act as the holder of the environment variable that gets used in the
+  small shell script in the GitHub Action.
+- Kick off the main part of the script by [processing the command line
+  switches](https://github.com/jimhall/jimhall.github.io/blob/9f110efedeb46e38d93c75a1ea44336f5ae77c45/scripts/tags-n-cats.py#L56-L70)
+- Make a call to the
+  [missing_dirs](https://github.com/jimhall/jimhall.github.io/blob/9f110efedeb46e38d93c75a1ea44336f5ae77c45/scripts/tags-n-cats.py#L26-L41)
+  function that fetches the webpage
+  [categoriescloud.html](https://jimhall.github.io/categories/categoriescloud.html)
+  or [tagscloud.html](https://jimhall.github.io/tags/tagscloud.html) depending
+  on the commandline switch. These webpages contain the current list of tags
+  or categories on the site. The markdown for these two pages are pretty
+  simple. Here it is for categories:
+
+```jekyll
+{% raw %}
+---
+layout: none
+---
+
+{%- for category in site.categories -%}
+  {{ category[0] | remove: '<p>' | remove: '</p>' }}
+{% endfor %}
+{% endraw %}
+```
+
+And here it is for tags:
+
+```jekyll
+{% raw %}
+---
+layout: none
+---
+
+{%- for tags in site.tags -%}
+  {{ tags[0] | remove: '<p>' | remove: '</p>' }}
+{% endfor %}
+{% endraw %}
+```
+It then does and `ls` of the current tag or categories directory and saves a
+set of all the current sub-dirs on the filesystem.
+
+- The script then [creates new sub-directories if
+  necessary](https://github.com/jimhall/jimhall.github.io/blob/9f110efedeb46e38d93c75a1ea44336f5ae77c45/scripts/tags-n-cats.py#L75-L96).
+  After creating the sub-directory the script concatenates a simple index.md
+  into the newly created sub-directory. 
+
+And that is it! I then have a [template for
+categories/index.md](https://github.com/jimhall/jimhall.github.io/blob/master/categories/index.md)
+and a [template for
+tags/index.md](https://github.com/jimhall/jimhall.github.io/blob/master/tags/index.md)
+that allow for the indexing of all the categories and tags dynamically using
+Jekyll. Each category or tag has a "jump page" that lists all the posts for an
+individual category or tag by date dynamically using Jekyll also.
 
 Also a quick word of caution: I over engineered the python script at the end
 of the day in my opinion. I fetch pages from the site that list the current
@@ -286,3 +347,6 @@ sleep](https://github.com/jimhall/jimhall.github.io/blob/9f110efedeb46e38d93c75a
 to the action script. If I were to start again, I would just parse the Front
 Matter of the blog posts and compare that set of tags to the current directory
 strucuture and then proceed with next steps.
+
+And that is how I created the blog by using GitHub Pages. A lot of these ideas
+can be leveraged regardless of the Theme you choose. 
