@@ -170,7 +170,7 @@ and all the text before `<!--more-->` gets displayed under the URL:
 
 ## Add Content to Generate an Archive Page
 
-*Important Sources*:
+*Important Source*:
 
 - https://www.mitsake.net/2012/04/archives-in-jekyll/
 
@@ -179,7 +179,8 @@ GitHub Pages does not support it at this time. Using the website source at
 mitsake.net above I created the following [jekyll logic that organizes the posts by
 date](https://raw.githubusercontent.com/jimhall/jimhall.github.io/master/archive/index.md):
 
-```
+```jekyll
+{% raw %}
 {%- for post in site.posts -%}
     {% capture month %}{{ post.date | date: '%m%Y' }}{% endcapture %}
     {% capture nmonth %}{{ post.next.date | date: '%m%Y' }}{% endcapture %}
@@ -190,6 +191,7 @@ date](https://raw.githubusercontent.com/jimhall/jimhall.github.io/master/archive
     <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
     <time>{{ post.date | date: "%e %B %Y" }}</time>
 {%- endfor -%}
+{% endraw %}
 ```
 
 ## Liquid Logic Trick to Reduce Generation of Blank Lines in HTML
