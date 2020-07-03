@@ -157,7 +157,7 @@ Not much to say here, just follow the docs. Here is a chunk of
 that shows you can use the liquid `{% raw %}{{ post.excerpt }}{% endraw %}` as the posts get lifted
 and all the text before `<!--more-->` gets displayed under the URL:
 
-```
+```jekyll
 {% raw %}
 <ul>
 {% for post in site.posts %}
@@ -205,12 +205,14 @@ compiled html for the actual site. Adding a `-` after the opening `%` and
 before the closing `%` seemed to help reduce (not eliminate) some of the
 unnecessary blank lines. Taking the archive sample above:
 
-```
+```jekyll
+{% raw %}
 {%- for post in site.posts -%}
 
 ...code....
 
 {%- endfor -%}
+{% endraw %}
 ```
 
 ## Google Analytics Account Creation
