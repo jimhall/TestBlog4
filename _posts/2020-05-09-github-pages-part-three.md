@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "GitHub Pages 2020: Odds and Ends for Decent Blog Platform (Part III)"
+title: "GitHub Pages 2020: Odds and Ends for a Decent Blog Platform (Part III)"
 date: 2020-05-09
 categories: [blog, computing, github]
 tags: [ghpages, jekyll]
@@ -92,8 +92,10 @@ the web page to twitter. I have also found it has been used by RSS readers
 also. My twist is to use some jekyll liquid logic [as
 below](https://github.com/jimhall/jimhall.github.io/blob/cfc35d415f9b11cb3799a7a49a68926a4e1151c6/_includes/head.html#L25):
 
-```
+```html
+{% raw %}
 <meta property="twitter:image" content="{{ page.image | default: "https://jimhall.github.io/assets/images/favicon/apple-touch-icon.png" }}">
+{% endraw %}
 ```
 
 Then I added a [jekyll Front Matter
