@@ -80,8 +80,8 @@ not replicate to the URL bar of your browser.
 
 *Important Sources*:
 
-- https://css-tricks.com/essential-meta-tags-social-media/
-- https://cards-dev.twitter.com/validator
+- [https://css-tricks.com/essential-meta-tags-social-media/](https://css-tricks.com/essential-meta-tags-social-media/)
+- [https://cards-dev.twitter.com/validator](https://cards-dev.twitter.com/validator)
 
 The CSS_TRICKS webpage walks through the various META tags necessary to work
 properly with social media sites. My implementation based on this information can be seen in lines 23-28 of
@@ -109,8 +109,8 @@ renders if someone were to tweet my post.
 
 *Important Sources*:
 
-- https://dzhavat.github.io/2020/01/19/adding-an-rss-feed-to-github-pages.html
-- https://github.com/jekyll/jekyll-feed#meta-tags
+- [https://dzhavat.github.io/2020/01/19/adding-an-rss-feed-to-github-pages.html](https://dzhavat.github.io/2020/01/19/adding-an-rss-feed-to-github-pages.html)
+- [https://github.com/jekyll/jekyll-feed#meta-tags](https://github.com/jekyll/jekyll-feed#meta-tags)
 
 RSS is *so* important to me. I believe it is the _killer app_ of the internet
 and I am at a loss as to why it is not leveraged more often. I see a lot of
@@ -150,7 +150,7 @@ aggregator will use the image associated with the parameter.
 
 *Important Sources*:
 
-- https://jekyllrb.com/docs/posts/#post-excerpts
+- [https://jekyllrb.com/docs/posts/#post-excerpts](https://jekyllrb.com/docs/posts/#post-excerpts)
 
 Not much to say here, just follow the docs. Here is a chunk of
 [index.md](https://raw.githubusercontent.com/jimhall/jimhall.github.io/master/index.md)
@@ -172,7 +172,7 @@ and all the text before `<!--more-->` gets displayed under the URL:
 
 *Important Source*:
 
-- https://www.mitsake.net/2012/04/archives-in-jekyll/
+- [https://www.mitsake.net/2012/04/archives-in-jekyll/](https://www.mitsake.net/2012/04/archives-in-jekyll/)
 
 There seems to be Jekyll plug-ins that would do this work automatically, but
 GitHub Pages does not support it at this time. Using the website source at
@@ -198,7 +198,7 @@ date](https://raw.githubusercontent.com/jimhall/jimhall.github.io/master/archive
 
 *Important Sources*:
 
-- https://talk.jekyllrb.com/t/jekyll-adding-open-and-close-paragraph-to-include-that-should-not-be-there/3872/6
+- [https://talk.jekyllrb.com/t/jekyll-adding-open-and-close-paragraph-to-include-that-should-not-be-there/3872/6](https://talk.jekyllrb.com/t/jekyll-adding-open-and-close-paragraph-to-include-that-should-not-be-there/3872/6)
 
 Just a quick note here: Jekyll `for` loops seem to generate blank lines in the
 compiled html for the actual site. Adding a `-` after the opening `%` and
@@ -219,9 +219,11 @@ unnecessary blank lines. Taking the archive sample above:
 
 *Important Sources*:
 
-- Used: https://github.com/dwyl/learn-google-analytics
-- Also: https://stackoverflow.com/questions/17207458/how-to-add-google-analytics-tracking-id-to-github-pages
-- https://desiredpersona.com/google-analytics-jekyll/
+- Used:
+  [https://github.com/dwyl/learn-google-analytics](https://github.com/dwyl/learn-google-analytics)
+- Also:
+  [https://stackoverflow.com/questions/17207458/how-to-add-google-analytics-tracking-id-to-github-pages](https://stackoverflow.com/questions/17207458/how-to-add-google-analytics-tracking-id-to-github-pages)
+- [https://desiredpersona.com/google-analytics-jekyll/](https://desiredpersona.com/google-analytics-jekyll/)
 
 Basically followed the steps in the first source to create a Google Analytics
 account and used the desiredpersona.com link to decide to add the code to the
