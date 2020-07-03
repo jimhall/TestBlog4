@@ -325,7 +325,9 @@ It then does and `ls` of the current tag or categories directory and saves a
 set of all the current sub-dirs on the filesystem.
 
 - The script then [creates new sub-directories if
-  necessary](https://github.com/jimhall/jimhall.github.io/blob/9f110efedeb46e38d93c75a1ea44336f5ae77c45/scripts/tags-n-cats.py#L75-L96).
+  necessary](https://github.com/jimhall/jimhall.github.io/blob/9f110efedeb46e38d93c75a1ea44336f5ae77c45/scripts/tags-n-cats.py#L75-L96)
+  by comparing the set of directories on the file system with the set of
+  directories fetched from the webpages.
   After creating the sub-directory the script concatenates a simple index.md
   into the newly created sub-directory. 
 
@@ -337,7 +339,7 @@ that allow for the indexing of all the categories and tags dynamically using
 Jekyll. Each category or tag has a "jump page" that lists all the posts for an
 individual category or tag by date dynamically using Jekyll also.
 
-Also a quick word of caution: I over engineered the python script at the end
+A quick word of caution: I over engineered the python script at the end
 of the day in my opinion. I fetch pages from the site that list the current
 categories and tags that have been generated. Then I check the tags and
 categories directory to see what has been generated to date. The problem is
