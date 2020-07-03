@@ -232,12 +232,13 @@ account and used the desiredpersona.com link to decide to add the code to the
 ## GitHub Actions: Auto-Generate Tag & Category Pages
 
 *Important Sources*:
-- https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#specifying-a-python-version
-- https://www.edwardthomson.com/blog/github_actions_advent_calendar.html
-- https://www.edwardthomson.com/blog/github_actions_10_path_triggers.html
-- https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths
-- https://stackoverflow.com/questions/57921401/push-to-origin-from-github-action
-- Sorted cats see: https://gist.github.com/Phlow/57eb457898e4ac4c4a20
+- [https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#specifying-a-python-version](https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#specifying-a-python-version)
+- [https://www.edwardthomson.com/blog/github_actions_advent_calendar.html](https://www.edwardthomson.com/blog/github_actions_advent_calendar.html)
+- [https://www.edwardthomson.com/blog/github_actions_10_path_triggers.html](https://www.edwardthomson.com/blog/github_actions_10_path_triggers.html)
+- [https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)
+- [https://stackoverflow.com/questions/57921401/push-to-origin-from-github-action](https://stackoverflow.com/questions/57921401/push-to-origin-from-github-action)
+- Sorted cats see:
+  [https://gist.github.com/Phlow/57eb457898e4ac4c4a20](https://gist.github.com/Phlow/57eb457898e4ac4c4a20)
 
 One gap in blog functionality with GitHub Pages is creating categories and
 tags and having some kind of page generated that will aggregate posts that are
