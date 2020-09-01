@@ -81,7 +81,8 @@ worked. Here is how I got it to work:
 - Confirm there is a number in the Server Port field (if you are running
   multiple guests simultaneously, give each guest a unique Server Port number)
 
-![VirtualBox Remote Display Image](https://jimhall.github.io/assets/images/)
+![VirtualBox Remote Display
+Image](https://jimhall.github.io/assets/images/rdpconfig.png)
 
 ### Step 2: Enable Bi-Directional Cut and Paste
 
@@ -96,6 +97,8 @@ You can try configure different combinations, for example for security
 reasons you may wish to not allow cut and past from the Solaris guest to the
 Mac, but allow data to flow the other way.
 
+![VirtualBox Cut and
+Paste](https://jimhall.github.io/assets/images/cutnpaste.png)
 
 
 
