@@ -71,5 +71,32 @@ Microsoft does not specifically talk about how to use it with VirtualBox but
 seems to position it as a generic RDP client. So I tried it and everything
 worked. Here is how I got it to work:
 
-### Step 1: 
+### Step 1: Configure/Enable the guest to be a remote display
 
+- Click on the guest you wish to configure in VirtualBox
+- Click on Settings
+- Click on Display
+- Click on the Remote Display tab
+- Click on the Enable Server box
+- Confirm there is a number in the Server Port field (if you are running
+  multiple guests simultaneously, give each guest a unique Server Port number)
+
+![VirtualBox Remote Display Image](https://jimhall.github.io/assets/images/)
+
+### Step 2: Enable Bi-Directional Cut and Paste
+
+- Click on the guest you wish to configure in VirtualBox
+- Click on Settings
+- Click on General
+- Click on Advanced
+- For Shared Clipboard choose Bidirectional
+- For Drag'n'Drop choose Bidirectional
+
+You can try configure different combinations, for example for security
+reasons you may wish to not allow cut and past from the Solaris guest to the
+Mac, but allow data to flow the other way.
+
+
+
+
+![VirtualBox Remote Display Image](https://jimhall.github.io/assets/images/)
