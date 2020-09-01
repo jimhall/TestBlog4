@@ -48,7 +48,20 @@ following combination of products to meet my needs:
 - Solaris 11.3 VirtualBox guest
 - My development machine running MacOS Catalina
 
-Started investigating remote desktop clients on the
+Rationale for this combination is as follows:
+
+- I prefer MacOS so I work day to day on that platform
+- I needed to run other operating systems (like Solaris), but did not want to
+  consume my laptop memory to guest OS consumption.
+- So I started "scavenging" on ebay for a older gaming laptop with a
+  reasonable amount of memory to run guests
+- The gaming laptop runs Windows 10 and I did not want to invest time on
+  getting Linux or Solaris to work on it.
+
+So with that, I got the environment working, and overtime I found it getting
+frustrating that when I needed console access I had to trundle over to the
+gaming laptop. Not being a regular Win 10 user compounded things. So I started
+investigating remote desktop clients for the Mac. Initially I went to
 [VirtualBox](https://www.virtualbox.org/manual/UserManual.html#rdp-viewers)
 site but it does not list a client that can specifically work on a Mac. Doing
 some googling I stumbled upon the [Microsoft Remote
