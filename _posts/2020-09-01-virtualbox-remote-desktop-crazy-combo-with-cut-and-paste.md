@@ -58,15 +58,18 @@ Rationale for this combination is as follows:
 - The gaming laptop runs Windows 10 and I did not want to invest time on
   getting Linux or Solaris to work on it.
 
-So with that, I got the environment working, and overtime I found it getting
-frustrating that when I needed console access I had to trundle over to the
-gaming laptop. Not being a regular Win 10 user compounded things. So I started
-investigating remote desktop clients for the Mac. Initially I went to
+So with that, I got the gaming laptop working, and overtime I found it 
+frustrating that when I needed console access to the guest I had to trundle over to the
+gaming laptop. Not being a regular Win 10 user compounded things (I find the
+Windows interface challenging). So I started
+investigating remote desktop clients for the Mac. Initially I went to the
 [VirtualBox](https://www.virtualbox.org/manual/UserManual.html#rdp-viewers)
 site but it does not list a client that can specifically work on a Mac. Doing
 some googling I stumbled upon the [Microsoft Remote
 Desktop Client](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac).
 Microsoft does not specifically talk about how to use it with VirtualBox but
 seems to position it as a generic RDP client. So I tried it and everything
-worked.
+worked. Here is how I got it to work:
+
+### Step 1: 
 
