@@ -120,6 +120,12 @@ Paste](https://jimhall.github.io/assets/images/cutnpaste.png)
 Pane](https://jimhall.github.io/assets/images/msrdcp.png)
 
 And there you have it! I have cut and paste working on both Linux and Solaris.
+You have to be a little sensitive to the different desktop requirement for cut
+and paste. For example, to copy from the Mac Terminal and paste into the
+Solaris gnome-terminal, you need to command-C on the Mac Terminal and then
+click on the Solaris workspace and do the standard Solaris GNOME
+shift-control-v to paste.
+
 Here is the a screenshot of the working environment:
 
 ![My MacOS Desktop](https://jimhall.github.io/assets/images/macdesktop.png)
