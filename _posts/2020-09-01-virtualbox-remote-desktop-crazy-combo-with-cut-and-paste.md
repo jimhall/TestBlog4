@@ -8,7 +8,7 @@ image: "https://www.virtualbox.org/graphics/vbox_logo2_gradient.png"
 excerpt_separator: <!--more-->
 ---
 
-I wanted to scribble down some notes on remote desktop and VirtualBox
+I wanted to scribble down some notes on remote desktop (RDP) and VirtualBox
 using Microsoft Remote Desktop. When I got started I realized I had
 a really complex combination of Operating Systems, but it all worked
 seemlessly. Here is how I got it work, including a step needed to get
@@ -21,7 +21,6 @@ At a high level I wanted to connect to the console of a
 investigate if "cut and paste" was possible between the development machine
 and the guest console. Here is a simple diagram of the environment I wound up
 with:
-
 
 <pre>
 ┌──────────────────────────────────────┐                  ┌──────────────────────────────────────┐
@@ -41,7 +40,7 @@ with:
 └──────────────────────────────────────┘                  └──────────────────────────────────────┘
 </pre>
 
-The reason why I have titled this "Crazy Combo" is that I wound up with the
+The reason why I have titled this post "Crazy Combo" is that I wound up with the
 following combination of products to meet my needs:
 
 - Windows 10 host running VirtualBox
@@ -93,13 +92,33 @@ Image](https://jimhall.github.io/assets/images/rdpconfig.png)
 - For Shared Clipboard choose Bidirectional
 - For Drag'n'Drop choose Bidirectional
 
-You can try configure different combinations, for example for security
+You can try to configure different combinations, for example for security
 reasons you may wish to not allow cut and past from the Solaris guest to the
-Mac, but allow data to flow the other way.
+Mac, but allow data to flow the other way. I prefer information to flow both
+ways through the clipboard.
 
 ![VirtualBox Cut and
 Paste](https://jimhall.github.io/assets/images/cutnpaste.png)
 
+### Step 3: Configure Microsoft Remote Desktop Client
+
+- Install the [Microsoft Remote
+  Desktop](https://apps.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12)
+  from the Apple App Store
+- Lauch the app
+- Click the "+" and choose Add a PC
+- Add a PC name (in my case the IP address of the Windows 10 host:
+  10.0.0.182). 3389 is the default RDP client service number. If you have
+  multiple guests give them a unique service number and then enter
+  10.0.0.182:3390 for example)
+- User account: you need to add a valid user name and password for the Windows
+  10 host
+- Give it a Friendly name: I chose jimwin8
+- I take defaults for the balance of the configuration options
+
+![Microsoft Remote Desktop Config
+Pane](https://jimhall.github.io/assets/images/msrdcp.png)
 
 
-![VirtualBox Remote Display Image](https://jimhall.github.io/assets/images/)
+
+
