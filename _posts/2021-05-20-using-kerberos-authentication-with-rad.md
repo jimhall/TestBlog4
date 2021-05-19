@@ -27,14 +27,14 @@ LDAP on Solaris 11.4 I wanted to validate the following:
 - Create a Kerbros principal of the same name (jhall@norsestuff.com) with a
 homedir on a kerberos protected NFS share
 
-- On my Mac, follow the steps in [this Solaris blog post](https://blogs.oracle.com/solaris/managing-oracle-solaris-through-rest) and use the curl commands in the blog posts to login and use the SMF RAD API command.
+- On my Mac, follow the steps in [this Solaris blog post](https://blogs.oracle.com/solaris/managing-oracle-solaris-through-rest) and use the curl commands in the blog post to login and use the SMF RAD API command.
 
 - Monitor Solaris Audit in the global zone and observe the RAD login is
 recorded in the audit record (and note the format).
 
 # Detailed Steps
 
-- Record of RAD authentication (curl commands run on my Mac)
+### Record of RAD authentication (curl commands run on my Mac)
 
 Contents of login.json (note using the user in LDAP)
 
@@ -107,7 +107,7 @@ subject,jhall,jhall,staff,jhall,staff,0,1530906022,54271 6788 ::ffff:10.0.0.69
 return,success,0
 ```
 
-** Use generated cookie again for second SMF RAD command in blog post:
+### Use generated cookie again for second SMF RAD command in blog post:
 
 ```
 % curl -b cookie.txt --cacert host.crt -H 'Content-Type:application/json' -X GET https://balder.norsestuff.com:6788/api/com.oracle.solaris.rad.smf/1.0/Instance/system%2Frad,remote/state
