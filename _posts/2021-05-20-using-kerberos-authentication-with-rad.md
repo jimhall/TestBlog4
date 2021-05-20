@@ -38,7 +38,7 @@ recorded in the audit record (and note the format).
 
 - Curl command in the blog post:
 
-```
+```bash
 curl -c cookie.txt -X POST --cacert host.crt --header 'Content-Type:application/json' --data '@login.json' https://balder.norsestuff.com:6788/api/authentication/1.0/Session/
 ```
 
@@ -53,7 +53,6 @@ jhall LDAP user // kerberos principal:
   "preserve": true,
   "timeout": -1
 }
-
 ```
 
 - Running the curl command results in the following expected result, matching
@@ -83,7 +82,7 @@ return,success,0
 
 (modified for my environment):
 
-```
+```bash
 curl -b cookie.txt --cacert host.crt -H 'Content-Type:application/json' -X GET https://balder.norsestuff.com:6788/api/com.oracle.solaris.rad.smf/1.0/Service/system%2Frad/instances
 ```
 
@@ -112,7 +111,7 @@ return,success,0
 
 ### Use generated cookie again for second SMF RAD command in blog post:
 
-```
+```bash
 curl -b cookie.txt --cacert host.crt -H 'Content-Type:application/json' -X GET https://balder.norsestuff.com:6788/api/com.oracle.solaris.rad.smf/1.0/Instance/system%2Frad,remote/state
 ```
 
@@ -152,9 +151,10 @@ subject,jhall,jhall,staff,jhall,staff,6423,1118693340,54412 22 10.0.0.69
 return,success,0
 ```
 
-- Here is how to modify per zone audit policy. Necessary to since I am doing
+- Here is how to modify per zone audit policy. Necessary since I am doing
 RAD auth in local zone and wanted to disambiguate what zone is being connected
-to:
+to (without this, the audit records are written to the global zone audit log
+stating the connection is from the global zone host):
 
 ```bash
 # auditconfig -getpolicy -t
@@ -168,7 +168,7 @@ active audit policies = argv,cnt,perzone
 - Here is a command to tail the latest audit log file to monitor activity in
 real time:
 
-```
+```bash
 # tail -0f $(find /var/share/audit -name $(ls -rt /var/audit | tail -1)) | praudit -x
 ```
 
