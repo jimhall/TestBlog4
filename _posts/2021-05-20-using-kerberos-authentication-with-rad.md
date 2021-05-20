@@ -36,14 +36,14 @@ recorded in the audit record (and note the format).
 
 ### Record of RAD authentication (curl commands run on my Mac)
 
-Contents of login.json (note using the user in LDAP)
+- Curl command in the blog post:
 
 ```
 curl -c cookie.txt -X POST --cacert host.crt --header 'Content-Type:application/json' --data '@login.json' https://balder.norsestuff.com:6788/api/authentication/1.0/Session/
 ```
 
-JSON fragment `login.json` that has the authentication information for the
-jhall kerberos principal:
+- JSON fragment `login.json` that has the authentication information for the
+jhall LDAP user // kerberos principal:
 
 ```json
 {
@@ -56,7 +56,7 @@ jhall kerberos principal:
 
 ```
 
-Running the curl command results in the following expected result, matching
+- Running the curl command results in the following expected result, matching
 the blog post:
 
 ```json
@@ -68,7 +68,7 @@ the blog post:
 }
 ```
 
-Here is the audit record for the authentication. Note it shows the service
+- Below is the audit record for the authentication. Note it shows the service
 used to connect (RAD), the user (jhall), group (staff), session id
 (2004100041), and terminal id / IP address connecting from (54270 6788
 ::ffff:10.0.0.69):
@@ -80,13 +80,14 @@ return,success,0
 ```
 
 ### Use generated cookie to run the SMF command in the blog post
+
 (modified for my environment):
 
 ```
 curl -b cookie.txt --cacert host.crt -H 'Content-Type:application/json' -X GET https://balder.norsestuff.com:6788/api/com.oracle.solaris.rad.smf/1.0/Service/system%2Frad/instances
 ```
 
-Output returned similar to the blog post:
+- Output returned similar to the blog post:
 
 ```json
 {
@@ -98,7 +99,7 @@ Output returned similar to the blog post:
 }
 ```
 
-Generated audit log (2 records this time; connection then logout):
+- Generated audit log (2 records this time; connection then logout):
 
 ```csv
 header,101,2,connect to RAD,,balder,2021-05-13 21:32:59.520-04:00
@@ -115,7 +116,7 @@ return,success,0
 curl -b cookie.txt --cacert host.crt -H 'Content-Type:application/json' -X GET https://balder.norsestuff.com:6788/api/com.oracle.solaris.rad.smf/1.0/Instance/system%2Frad,remote/state
 ```
 
-Again, good news output is similar to the blog post:
+- Again, good output is similar to the blog post:
 
 ```json
 {
@@ -124,7 +125,7 @@ Again, good news output is similar to the blog post:
 }
 ```
 
-Generated audit log (Again, 2 records this time; connection then logout):
+- Generated audit log (Again, 2 records this time; connection then logout):
 
 ```csv
 header,101,2,connect to RAD,,balder,2021-05-13 21:36:06.090-04:00
