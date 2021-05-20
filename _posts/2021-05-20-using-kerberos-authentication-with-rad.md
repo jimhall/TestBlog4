@@ -78,7 +78,7 @@ subject,jhall,jhall,staff,jhall,staff,0,2004100041,54270 6788 ::ffff:10.0.0.69
 return,success,0
 ```
 
-- Use generated cookie to run the SMF command in the blog post
+### Use generated cookie to run the SMF command in the blog post
 (modified for my environment):
 
 ```% curl -b cookie.txt --cacert host.crt -H 'Content-Type:application/json' -X GET https://balder.norsestuff.com:6788/api/com.oracle.solaris.rad.smf/1.0/Service/system%2Frad/instances
@@ -166,7 +166,6 @@ active audit policies = argv,cnt,perzone
 real time:
 
 ```
-# tail -0f `ls -rt /var/audit | tail -1` | praudit -x
 # tail -0f $(find /var/share/audit -name $(ls -rt /var/audit | tail -1)) | praudit -x
 ```
 
