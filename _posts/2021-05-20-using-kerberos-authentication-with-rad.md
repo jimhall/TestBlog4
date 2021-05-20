@@ -139,8 +139,6 @@ return,success,0
 
 This worked out well. I was able to use RAD to authenticate to a non-root user. The fact that I was using kerberos in the PAM stack was "no big deal". This will allow me to proceed with further validation that I can use this mechanism as a web based authentication method for applications.
 
-
-
 ### Reference // Appendix
 
 - Here is an audit record of SSH Login:
