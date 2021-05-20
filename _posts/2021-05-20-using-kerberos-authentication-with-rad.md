@@ -8,19 +8,19 @@ image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Aktualne_logo_
 excerpt_separator: <!--more-->
 ---
 
-# Overall concept
-
 I am considering doing some experiments with [Solaris
 RAD](https://docs.oracle.com/cd/E37838_01/html/E68270/gmfhf.html) with [LDAP
 naming services](https://docs.oracle.com/cd/E37838_01/html/E61012/index.html)
 and use it as a foundation for application authentication using using
 [Kerberos](https://docs.oracle.com/cd/E37838_01/html/E61026/index.html).
 
+<!--more-->
+
 This post is a quick proof of concept and allowing me to kind of kick off my
 documentation process. Given that I have successfully configured Kerberos and
 LDAP on Solaris 11.4 I wanted to validate the following:
 
-# High Level Steps
+## High Level Steps
 
 - Create a user in LDAP called `jhall` and using [per-user PAM](https://docs.oracle.com/cd/E37838_01/html/E61023/rbacref-6.html#OSSUPrbacref-10) and setting pam_policy in `user_attr` to [krb5_only](https://docs.oracle.com/cd/E88353_01/html/E37853/pam-user-policy-7.html#REFMAN7pam-user-policy-7)
 
@@ -32,13 +32,14 @@ homedir on a kerberos protected NFS share
 - Monitor Solaris Audit in the global zone and observe the RAD login is
 recorded in the audit record (and note the format).
 
-# Detailed Steps
+## Detailed Steps
 
 ### Record of RAD authentication (curl commands run on my Mac)
 
 Contents of login.json (note using the user in LDAP)
 
-```% curl -c cookie.txt -X POST --cacert host.crt --header 'Content-Type:application/json' --data '@login.json' https://balder.norsestuff.com:6788/api/authentication/1.0/Session/
+```
+curl -c cookie.txt -X POST --cacert host.crt --header 'Content-Type:application/json' --data '@login.json' https://balder.norsestuff.com:6788/api/authentication/1.0/Session/
 ```
 
 JSON fragment `login.json` that has the authentication information for the
@@ -81,7 +82,8 @@ return,success,0
 ### Use generated cookie to run the SMF command in the blog post
 (modified for my environment):
 
-```% curl -b cookie.txt --cacert host.crt -H 'Content-Type:application/json' -X GET https://balder.norsestuff.com:6788/api/com.oracle.solaris.rad.smf/1.0/Service/system%2Frad/instances
+```
+curl -b cookie.txt --cacert host.crt -H 'Content-Type:application/json' -X GET https://balder.norsestuff.com:6788/api/com.oracle.solaris.rad.smf/1.0/Service/system%2Frad/instances
 ```
 
 Output returned similar to the blog post:
@@ -110,7 +112,7 @@ return,success,0
 ### Use generated cookie again for second SMF RAD command in blog post:
 
 ```
-% curl -b cookie.txt --cacert host.crt -H 'Content-Type:application/json' -X GET https://balder.norsestuff.com:6788/api/com.oracle.solaris.rad.smf/1.0/Instance/system%2Frad,remote/state
+curl -b cookie.txt --cacert host.crt -H 'Content-Type:application/json' -X GET https://balder.norsestuff.com:6788/api/com.oracle.solaris.rad.smf/1.0/Instance/system%2Frad,remote/state
 ```
 
 Again, good news output is similar to the blog post:
@@ -133,13 +135,13 @@ subject,jhall,jhall,staff,jhall,staff,0,1482710200,54314 6788 ::ffff:10.0.0.69
 return,success,0
 ```
 
-# Conclusion
+## Conclusion
 
 This worked out well. I was able to use RAD to authenticate to a non-root user. The fact that I was using kerberos in the PAM stack was "no big deal". This will allow me to proceed with further validation that I can use this mechanism as a web based authentication method for applications.
 
 
 
-## Reference // Appendix
+### Reference // Appendix
 
 - Here is an audit record of SSH Login:
 
