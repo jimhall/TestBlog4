@@ -26,3 +26,5 @@ a trivial activity, but as with a lot of things in life, the first
 - [ ] Theme choice: an aside
 - [ ] Create directory structure for blogging
 - [ ] Create an index.md
+
+[x] test with no dash
