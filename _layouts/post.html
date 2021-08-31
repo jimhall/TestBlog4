@@ -1,7 +1,10 @@
 ---
 layout: default
 ---
-<!-- https://www.w3schools.com/howto/howto_css_bullet_color.asp -->
+<!-- https://www.w3schools.com/howto/howto_css_bullet_color.asp 
+Moved to _sass/jekyll-theme-hacker-jimhall.scss
+Using workaround in 
+https://github.com/pages-themes/hacker/pull/83/files#diff-e9f5b0e72d7e28a9b6eeb79541e59c7fbe67c539c1be7b67c495cc931b8919ca
 <style>
 ul.task-list {
   list-style: none; /* Remove default bullets */
@@ -18,6 +21,7 @@ li.task-list-item {
   list-style-image: url("{{ '/assets/images/black-dot.png' | relative_url }}");
 }
 </style>
+-->
 
 <small>{{ page.date | date: "%-d %B %Y" }}</small>
 <h1>{{ page.title }}</h1>
