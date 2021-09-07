@@ -52,27 +52,26 @@ illuminating as to how this stuff works):
   /api/authentication/1.0/Session (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1108)')))
   ```
 
- After doing some research, I determined I needed to grab the zone's CA file:
+  After doing some research, I determined I needed to grab the zone's CA file:
 
-```bash
-pwd
-/Users/jameshall/mysrc/python/solaris/rad/balder/CA
-scp backdoor@balder:/etc/certs/localhost/host-ca/hostca.crt .
-```
+  ```bash
+  pwd
+  /Users/jameshall/mysrc/python/solaris/rad/balder/CA
+  scp backdoor@balder:/etc/certs/localhost/host-ca/hostca.crt .
+  ```
 
- Then run the following `openssl` command in order to create the proper
-symlinks:
+  Then run the following `openssl` command in order to create the proper symlinks:
 
-```bash
-ln -s hostca.pem `openssl x509 -hash -noout -in hostca.pem`.0
-```
+  ```bash
+  ln -s hostca.pem `openssl x509 -hash -noout -in hostca.pem`.0
+  ```
 
  Then I modified the script with a new post command using the path to the
  hostca file for the `verify` option:
 
-```python
-r = s.post(login_url, json=config_json, verify='/Users/jameshall/mysrc/python/solaris/rad/balder/CA')
-```
+  ```python
+  r = s.post(login_url, json=config_json, verify='/Users/jameshall/mysrc/python/solaris/rad/balder/CA')
+  ```
 
 - How do you inspect the cookie that comes back? I was hoping that I could
   simply say `print(s.cookies.__dict__[blah])`, but not so much. Exploring the
