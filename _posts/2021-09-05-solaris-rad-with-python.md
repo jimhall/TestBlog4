@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Solaris RAD With Python"
-date: 2021-09-05
+date: 2021-09-07
 categories: [computing]
 tags: [solaris, rad, python]
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Aktualne_logo_Oracle_Solaris_OS_OSos.png/250px-Aktualne_logo_Oracle_Solaris_OS_OSos.png"
@@ -19,25 +19,26 @@ authenticate to a Solaris zone and grab some SMF info.
 
 ## Some Notes on the Orginal Script
 
-Looking at the original script in the blog post, it is pretty slick. The
-problem is that I am so behind the curve on REST programming in general! I
+Looking at the original script in the blog post, it is pretty slick. My
+challenge is that I am behind the curve on REST programming in general! I
 have a fairly basic grasp of python, but lack fundamentals on the requests
 library. Here are some of my notes (a little random, but I think it is
 illuminating as to how this stuff works):
 
-- Ok so there is an `import requests`, which I get (you need something to make
-  the http REST call). Why the `with requests.Session() as s` statment? Why
-  bother with a _session_? (Line 13 in the script)
+- There is an `import requests` line at the top of the script, which I
+  get (you need a package to make the http REST call). But why the `with
+  requests.Session() as s` statment? Why bother with a _session_? (Line 17 in
+  the script)  
 
   Answer: According to the
-  [docs](https://docs.python-requests.org/en/master/user/advanced/#session-objects)
+  [request docs](https://docs.python-requests.org/en/master/user/advanced/#session-objects)
   this allows cookies to persist between requests and re-uses the same TCP
   connection. The `with` keyword makes it a context manager and will make sure the session is closed as soon as the with block is exited, even if unhandled exceptions occurred.
   
 - The zone is using a self-signed certificate for `https` connections. The
-  client is a Mac. This deviated from the blog post significantly.
+  client is a Mac. I could not get the blog post script to work initially.
 
-  The blog post line of code:
+  Answer: The blog post line of code:
   ```python
   r = s.post(login_url, json=config_json, verify='host.crt')
   ```
@@ -45,10 +46,13 @@ illuminating as to how this stuff works):
   Resulted in the following exception:
 
   ```python
-  requests.exceptions.SSLError: HTTPSConnectionPool(host='balder.norsestuff.com', port=6788): Max retries exceeded with url: /api/authentication/1.0/Session (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1108)')))
+  requests.exceptions.SSLError: 
+  HTTPSConnectionPool(host='balder.norsestuff.com', port=6788): 
+  Max retries exceeded with url: 
+  /api/authentication/1.0/Session (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1108)')))
   ```
 
-After doing some research, I determined I needed to grab the zone's CA file:
+ After doing some research, I determined I needed to grab the zone's CA file:
 
 ```bash
 pwd
@@ -56,15 +60,15 @@ pwd
 scp backdoor@balder:/etc/certs/localhost/host-ca/hostca.crt .
 ```
 
-Then run the following `openssl` command in order to create the proper
+ Then run the following `openssl` command in order to create the proper
 symlinks:
 
 ```bash
 ln -s hostca.pem `openssl x509 -hash -noout -in hostca.pem`.0
 ```
 
-Then I modified the script with a new post command using the path to the
-hostca file for the `verify` option:
+ Then I modified the script with a new post command using the path to the
+ hostca file for the `verify` option:
 
 ```python
 r = s.post(login_url, json=config_json, verify='/Users/jameshall/mysrc/python/solaris/rad/balder/CA')
@@ -74,24 +78,26 @@ r = s.post(login_url, json=config_json, verify='/Users/jameshall/mysrc/python/so
   simply say `print(s.cookies.__dict__[blah])`, but not so much. Exploring the
   data structure got borked at the Cookie object.
 
-Answer:
-https://docs.python-requests.org/en/master/api/#cookies
+ Answer: [https://docs.python-requests.org/en/master/api/#cookies](https://docs.python-requests.org/en/master/api/#cookies)
 
 `requests.utils.dict_from_cookiejar(s.cookies)`
+ 
+ and a little deeper into the structure:
+
 `requests.utils.dict_from_cookiejar(s.cookies)['_rad_instance']`
 
-Sample output:
+Sample API call and output:
 
 ```python
 requests.utils.dict_from_cookiejar(s.cookies)
 ```
-```json
+```bash
 {'_rad_instance': '8960', '_rad_token': 'c2890180-7e70-42b0-a80f-b676161df99f'}
 ```
 
 - How do you capture request status
 
-The [json](https://docs.python.org/3/library/json.html#module-json) package is needed. Add this line to the script:
+ Answer: The [json](https://docs.python.org/3/library/json.html#module-json) package is needed. Add this line to the script:
 
 ```python
 >>> r.text
@@ -109,7 +115,7 @@ query_url1 = "https://balder.norsestuff.com:6788/api/com.oracle.solaris.rad.smf/
 ```
 This returns the following:
 
-```json
+```bash
 The status code is: 200
 The return text is: {
         "status": "success",
@@ -123,8 +129,9 @@ The return text is: {
 }
 ```
 
-- Here is a note on exploring the session data structure which led to me
-  determing that I needed to get further data about the session cookie via the `requests` API (see above). 
+- An aside: Here is a note on exploring the session data structure which led to me
+  determing that I needed to get further data about the session cookie via the
+  `requests` API (see above).
 
 ```python
 >>> s.cookies.__dict__['_cookies']['balder.norsestuff.com']['/api']['_rad_instance']
@@ -144,7 +151,7 @@ and:
 
 - Inspect the cookies associated with the connection.
 
-Looks like there is a path to using this for Django authentication.
+ Looks like there is a path to using this for Django authentication.
 
 ## Appendix: Modified blog post script
 
