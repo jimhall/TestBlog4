@@ -33,7 +33,9 @@ illuminating as to how this stuff works):
   Answer: According to the
   [request docs](https://docs.python-requests.org/en/master/user/advanced/#session-objects)
   this allows cookies to persist between requests and re-uses the same TCP
-  connection. The `with` keyword makes it a context manager and will make sure the session is closed as soon as the with block is exited, even if unhandled exceptions occurred.
+  connection. The `with` keyword makes it a context manager and will make sure
+  the session is closed as soon as the with block is exited, even if unhandled
+  exceptions occurred.
   
 - The zone is using a self-signed certificate for `https` connections. The
   client is a Mac. I could not get the blog post script to work initially.
@@ -49,7 +51,10 @@ illuminating as to how this stuff works):
   requests.exceptions.SSLError: 
   HTTPSConnectionPool(host='balder.norsestuff.com', port=6788): 
   Max retries exceeded with url: 
-  /api/authentication/1.0/Session (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1108)')))
+  /api/authentication/1.0/Session (Caused by
+  SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED]
+  certificate verify failed: unable to get local issuer certificate
+  (_ssl.c:1108)')))
   ```
 
   After doing some research, I determined I needed to grab the zone's CA file:
@@ -66,8 +71,8 @@ illuminating as to how this stuff works):
   ln -s hostca.pem `openssl x509 -hash -noout -in hostca.pem`.0
   ```
 
- Then I modified the script with a new post command using the path to the
- hostca file for the `verify` option:
+  Then I modified the script with a new post command using the path to the
+  hostca file for the `verify` option:
 
   ```python
   r = s.post(login_url, json=config_json, verify='/Users/jameshall/mysrc/python/solaris/rad/balder/CA')
@@ -77,65 +82,70 @@ illuminating as to how this stuff works):
   simply say `print(s.cookies.__dict__[blah])`, but not so much. Exploring the
   data structure got borked at the Cookie object.
 
- Answer: [https://docs.python-requests.org/en/master/api/#cookies](https://docs.python-requests.org/en/master/api/#cookies)
+  Answer: [https://docs.python-requests.org/en/master/api/#cookies](https://docs.python-requests.org/en/master/api/#cookies)
 
-`requests.utils.dict_from_cookiejar(s.cookies)`
+  `requests.utils.dict_from_cookiejar(s.cookies)`
  
- and a little deeper into the structure:
+  and a little deeper into the structure:
 
-`requests.utils.dict_from_cookiejar(s.cookies)['_rad_instance']`
+  `requests.utils.dict_from_cookiejar(s.cookies)['_rad_instance']`
 
-Sample API call and output:
+  Sample API call and output:
 
-```python
-requests.utils.dict_from_cookiejar(s.cookies)
-```
-```bash
-{'_rad_instance': '8960', '_rad_token': 'c2890180-7e70-42b0-a80f-b676161df99f'}
-```
+  ```python
+  requests.utils.dict_from_cookiejar(s.cookies)
+  ```
+  ```bash
+  {'_rad_instance': '8960', '_rad_token': 'c2890180-7e70-42b0-a80f-b676161df99f'}
+  ```
 
 - How do you capture request status
 
- Answer: The [json](https://docs.python.org/3/library/json.html#module-json) package is needed. Add this line to the script:
+  Answer: The [json](https://docs.python.org/3/library/json.html#module-json)
+  package is needed. Add this line to the script:
 
-```python
->>> r.text
-'{\n        "status": "success",\n        "payload": "ONLINE"\n}'
->>> bar = json.loads(r.text)
->>> bar['status']
-'success'
-```
+  ```python
+  >>> r.text
+  '{\n        "status": "success",\n        "payload": "ONLINE"\n}'
+  >>> bar = json.loads(r.text)
+  >>> bar['status']
+  'success'
+  ```
 
 - Tried to GET an SMF service that had a list of instances. Found
   `svc:/system/identity` had five instances:
 
-```python
-query_url1 = "https://balder.norsestuff.com:6788/api/com.oracle.solaris.rad.smf/1.0/Service/system%2Fidentity/instances"
-```
-This returns the following:
+  ```python
+  query_url1 = "https://balder.norsestuff.com:6788/api/com.oracle.solaris.rad.smf/1.0/Service/system%2Fidentity/instances"
+  ```
+  This returns the following:
 
-```bash
-The status code is: 200
-The return text is: {
-        "status": "success",
-        "payload": [
-                "cert",
-                "cert-expiry",
-                "domain",
-                "node",
-                "version"
-        ]
-}
-```
+  ```bash
+  The status code is: 200
+  The return text is: {
+          "status": "success",
+          "payload": [
+                  "cert",
+                  "cert-expiry",
+                  "domain",
+                  "node",
+                  "version"
+          ]
+  }
+  ```
 
 - An aside: Here is a note on exploring the session data structure which led to me
   determing that I needed to get further data about the session cookie via the
   `requests` API (see above).
 
-```python
->>> s.cookies.__dict__['_cookies']['balder.norsestuff.com']['/api']['_rad_instance']
-Cookie(version=0, name='_rad_instance', value='3840', port=None, port_specified=False, domain='balder.norsestuff.com', domain_specified=False, domain_initial_dot=False, path='/api', path_specified=True, secure=False, expires=1630617493, discard=False, comment=None, comment_url=None, rest={'HttpOnly': None}, rfc2109=False)
-```
+  ```python
+  >>> s.cookies.__dict__['_cookies']['balder.norsestuff.com']['/api']['_rad_instance']
+  Cookie(version=0, name='_rad_instance', value='3840', port=None,
+  port_specified=False, domain='balder.norsestuff.com',
+  domain_specified=False, domain_initial_dot=False, path='/api',
+  path_specified=True, secure=False, expires=1630617493, discard=False,
+  comment=None, comment_url=None, rest={'HttpOnly': None}, rfc2109=False)
+  ```
 
 ## Conclusion
 
@@ -150,7 +160,7 @@ and:
 
 - Inspect the cookies associated with the connection.
 
- Looks like there is a path to using this for Django authentication.
+  Looks like there is a path to using this for Django authentication.
 
 ## Appendix: Modified blog post script
 
