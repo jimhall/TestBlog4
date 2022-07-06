@@ -210,7 +210,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 ### Creating my first Django application environment
 
-- Leveraging the [the following blog post by
+- Leveraging [the following blog post by
 Darren](https://blogs.oracle.com/solaris/post/future-of-python-on-solaris) I
 used the `--system-site-packages` of `venv` to leverage the Solaris installed
 packages in addition to the default library:
@@ -222,6 +222,7 @@ packages in addition to the default library:
   ```
 
 - I then activated the venv, `pip freeze`, and created a requirements.txt:
+
   ```bash
 $ source bin/activate
 $ pip freeze
@@ -243,18 +244,18 @@ $ pip install -r requirements.txt
 - Then I ran the Django server with success!
 
   ```bash
-$ python manage.py runserver
-Watching for file changes with StatReloader
-Performing system checks...
+  $ python manage.py runserver
+  Watching for file changes with StatReloader
+  Performing system checks...
 
-System check identified no issues (0 silenced).
+  System check identified no issues (0 silenced).
 
-You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
-Run 'python manage.py migrate' to apply them.
-March 17, 2022 - 19:19:20
-Django version 3.2.11, using settings 'trydjango.settings'
-Starting development server at http://127.0.0.1:8000/
-Quit the server with CONTROL-C.
+  You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+  Run 'python manage.py migrate' to apply them.
+  March 17, 2022 - 19:19:20
+  Django version 3.2.11, using settings 'trydjango.settings'
+  Starting development server at http://127.0.0.1:8000/
+  Quit the server with CONTROL-C.
   ```
 
 ## Conclusion and What happended during the next SRU update?
