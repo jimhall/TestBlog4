@@ -142,13 +142,9 @@ library/python/django-39                          3.2.11-11.4.43.0.1.113.1   ---
   returning 3.7 revealed that the current active environment is a combination
   of python 3.7 and Django 2.2.26, which is `library/python/django-37`.
   However, the "default" `library/python/django` is related to
-  `library/python/django-39`.  but my
-  current boot environment is configured to run python 3.7 which is related to
-  package `library/python/django-37`. 
-  In fact, according to the output above 3.2.11 is not even *installed*. 
-
-
-
+  `library/python/django-39`, which according to the VERSION column would be
+  Django 3.2.11, which according to the IFO column is not even *installed*.
+  
 
 
 
