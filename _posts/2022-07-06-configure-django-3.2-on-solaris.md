@@ -164,6 +164,7 @@ python   vendor    3.7     vendor
 python   system    3.9     system
 python   system    2.7     system
   ```
+
 - The `VER.` column shows that 3.7 is the current preferred version. Use `pkg
   set-mediator` to change the preferred python version to be 3.9, while using
   the `--backup-be-name` option to create a backup boot environment:
@@ -185,6 +186,7 @@ Changed mediators:
 
 - `pkg info -l django-39` shows that Django 3.9 is installed. `pkg list | grep
   django` shows both versions installed now:
+
   ```bash
 $ pkg list | grep django
 library/python/django                             3.2.11-11.4.43.0.1.113.1   i--
@@ -205,6 +207,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> django.VERSION
 (3, 2, 11, 'final', 0)
   ```
+### Creating my first Django application environment
+
 
 
 Looking at the original script in the blog post, it is pretty slick. My
