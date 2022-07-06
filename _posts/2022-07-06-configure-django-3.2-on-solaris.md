@@ -164,7 +164,24 @@ python   vendor    3.7     vendor
 python   system    3.9     system
 python   system    2.7     system
   ```
-- 
+- The `VER.` column shows that 3.7 is the current preferred version. Use `pkg
+  set-mediator` to change the preferred python version to be 3.9, while using
+  the `--backup-be-name` option to create a backup boot environment:
+
+```bash
+$ pfexec pkg set-mediator -v -V 3.9 --backup-be-name 11.4.43.113.3-switch-python3.9 python
+            Packages to change:        13
+           Mediators to change:         1
+     Estimated space available:  69.45 GB
+Estimated space to be consumed: 753.03 MB
+       Create boot environment:        No
+Create backup boot environment:       Yes
+          Rebuild boot archive:        No
+
+Changed mediators:
+  mediator python:
+           version: 3.7 (vendor default) -> 3.9 (local default)
+```
 
 
 
