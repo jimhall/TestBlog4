@@ -95,6 +95,12 @@ Running `pkg list | grep django` returned nothing, so it looked like my
 install did not include the software. I performed the following steps to
 arrive at the latest version provided by Oracle: 
 
+- First I made a note of the current default python is:
+```bash
+$ /usr/bin/python -V
+Python 3.7.12 (default, Mar 30 2022, 14:16:52)
+```
+
 - Decided to use the "dry run" option of `pkg` to see if simply running
   `pfexec pkg install -nv django` to see what would happen. I got the
   following output:
@@ -118,6 +124,27 @@ solaris
   library/python/django-37
     None -> 2.2.26-11.4.43.0.1.113.1
   ```
+- After install, running `pip freeze | grep Dj` shows the Django being imported by
+  python is 2.2.26:
+  ```bash
+Django==2.2.26
+   ```
+- This is confirmed by running `pkg list -a *django*`:
+```bash
+NAME (PUBLISHER)                                  VERSION                    IFO
+<truncate>
+library/python/django                             3.2.11-11.4.43.0.1.113.1   i--
+library/python/django-37                          2.2.26-11.4.43.0.1.113.1   i--
+library/python/django-39                          3.2.11-11.4.43.0.1.113.1   ---
+```
+- The combination of `pip freeze` and `pkg list` revealed that the current
+  active environment is a combination of python 3.7 and Django 2.2.26. The
+  naming convention Solaris is using for Django packages is that the "default"
+  `library/python/django` is related to `library/python/django-39` but my
+  currentIn
+  fact, according to the output above 3.2.11 is not even *installed*. 
+
+
 
 
 
