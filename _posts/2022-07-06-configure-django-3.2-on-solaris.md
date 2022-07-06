@@ -193,6 +193,19 @@ library/python/django-39                          3.2.11-11.4.43.0.1.113.1   i--
   ```
 - `python -V` shows Python 3.9.4 installed. `pip freeze | grep Dj` shows Django==3.2.11
 
+- Finally, using the python repl shows that the system is now using Django 3.2
+  by default:
+
+  ```bash
+$ python
+Python 3.9.4 (default, Feb 10 2022, 06:27:49)
+[GCC 11.2.0] on sunos5
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import django
+>>> django.VERSION
+(3, 2, 11, 'final', 0)
+  ```
+
 
 Looking at the original script in the blog post, it is pretty slick. My
 challenge is that I am behind the curve on REST programming in general! I
