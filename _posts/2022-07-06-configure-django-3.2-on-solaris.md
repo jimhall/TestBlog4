@@ -16,13 +16,14 @@ manage packages on Solaris.
 
 ## The Short Version (TL;DR: Configure the latest version of Django)
 
-*Assuming* you have a full install of Solaris 11.4 (at this writing SRU43), it
-seems to boil down to the following (Assumes you have the "System
-Administrator" profile assigned):
+*Assuming* you have a full install of Solaris 11.4 (SRU43 was the SRU I first
+tried this, followed by and upgrade to SRU46), it seems to boil down to the
+following (Assumes you have the "System Administrator" profile assigned):
 
 ```bash
 $ getent user_attr jhall
 jhall::::profiles=System Administrator;roles=root;audit_flags=cusa\:no
+$ pfexec pkg install django
 $ pfexec pkg install python-39
 $ pfexec pkg set-mediator -v -V 3.9 --backup-be-name 11.4.43.113.3-switch-python3.9 python
 $ mkdir try-django
@@ -46,7 +47,8 @@ manage your python environment with Solaris.
 The "long version" has steps that led me to discover what I believe to be the
 "short version" provided above. I would position this listing as "good faith
 notes" and there may be more effective, optimized and/or accurate ways to
-arrive at the desired destination.
+arrive at the desired destination of running the latest version of Django from
+the Solaris 11.4 repository.
 
 ### Manage packages on the system as a non-root user and install the latest Django
 
@@ -93,7 +95,7 @@ $ profiles -p "Software Installation" info
 
 Running `pkg list | grep django` returned nothing, so it looked like my
 install did not include the software. I performed the following steps to
-arrive at the latest version provided by Oracle: 
+arrive at the latest version provided by the Solaris 11.4 repo: 
 
 - First I made a note of the current default python is:
 ```bash
@@ -152,9 +154,11 @@ NAME (PUBLISHER)                                  VERSION                    IFO
 runtime/python-39                                 3.9.4-11.4.43.0.1.113.1    ---
 ```
 
-- I used `pfexec pkg install python-39` to get python 3.9
+- I used `pfexec pkg install python-39` to get python 3.9 (output not
+  provided).
 
-- I recalled that there is a concept called
+- Since there are multiple versions of Python installed at this point, I
+  recalled that there is a concept called
   [mediators](https://docs.oracle.com/cd/E37838_01/html/E61051/glysm.html) to
   determine the default version of application software, so I ran `pkg
   mediator -a python`:
@@ -184,7 +188,7 @@ python   system    2.7     system
              version: 3.7 (vendor default) -> 3.9 (local default)
   ```
 
-- `pkg info -l django-39` shows that Django 3.9 is installed. `pkg list | grep
+- `pkg info -l django-39` shows that Django 3.2 is installed now. `pkg list | grep
   django` shows both versions installed now:
 
   ```bash
