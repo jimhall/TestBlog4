@@ -107,6 +107,17 @@ arrive at the latest version provided by Oracle:
       Create backup boot environment:        No
                 Rebuild boot archive:        No
     ```
+- Removing the dry run option and going with `pfexec pkg install -v django`
+  Solaris installs *two versions* of Django (3.2.11 and 2.2.26):
+
+  ```bash
+Changed packages:
+solaris
+  library/python/django
+    None -> 3.2.11-11.4.43.0.1.113.1
+  library/python/django-37
+    None -> 2.2.26-11.4.43.0.1.113.1
+  ```
 
 
 
