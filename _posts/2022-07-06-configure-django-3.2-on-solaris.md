@@ -168,7 +168,7 @@ python   system    2.7     system
   set-mediator` to change the preferred python version to be 3.9, while using
   the `--backup-be-name` option to create a backup boot environment:
 
-```bash
+  ```bash
 $ pfexec pkg set-mediator -v -V 3.9 --backup-be-name 11.4.43.113.3-switch-python3.9 python
             Packages to change:        13
            Mediators to change:         1
@@ -181,8 +181,17 @@ Create backup boot environment:       Yes
 Changed mediators:
   mediator python:
            version: 3.7 (vendor default) -> 3.9 (local default)
-```
+  ```
 
+- `pkg info -l django-39` shows that Django 3.9 is installed. `pkg list | grep
+  django` shows both versions installed now:
+  ```bash
+$ pkg list | grep django
+library/python/django                             3.2.11-11.4.43.0.1.113.1   i--
+library/python/django-37                          2.2.26-11.4.43.0.1.113.1   i--
+library/python/django-39                          3.2.11-11.4.43.0.1.113.1   i--
+  ```
+- `python -V` shows Python 3.9.4 installed. `pip freeze | grep Dj` shows Django==3.2.11
 
 
 Looking at the original script in the blog post, it is pretty slick. My
