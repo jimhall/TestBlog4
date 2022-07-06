@@ -152,6 +152,20 @@ NAME (PUBLISHER)                                  VERSION                    IFO
 runtime/python-39                                 3.9.4-11.4.43.0.1.113.1    ---
 ```
 
+- I used `pfexec pkg install python-39` to get python 3.9
+
+- I recalled that there is a concept called
+  [mediators](https://docs.oracle.com/cd/E37838_01/html/E61051/glysm.html) to
+  determine the default version of application software, so I ran `pkg
+  mediator -a python`:
+  ```bash
+MEDIATOR VER. SRC. VERSION IMPL. SRC. IMPLEMENTATION
+python   vendor    3.7     vendor
+python   system    3.9     system
+python   system    2.7     system
+  ```
+- 
+
 
 
 Looking at the original script in the blog post, it is pretty slick. My
