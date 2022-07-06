@@ -8,7 +8,7 @@ image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Aktualne_logo_
 excerpt_separator: <!--more-->
 ---
 
-Trying to leverage what is bundled in Solaris 11.4, so I tried to configured
+Trying to leverage what is bundled in Solaris 11.4, so I tried to configure
 the latest version of Django. Simultaneously picked up some tricks on how to
 manage packages on Solaris.
 
@@ -61,6 +61,33 @@ $ profiles -p "System Administrator" info
 	name=System Administrator
 	desc=profiles=Printer Management
 	profiles=Fault Management,Install Service Management,Compliance Reporter,Unified Archive Administration,National Languages Support Management,Administrative Command History,Audit Review,Extended Accounting Flow Management,Extended Accounting Net Management,Extended Accounting Process Management,Extended Accounting Task Management,Cron Management,Device Management,File System Management,Log Management,Mail Management,Maintenance and Repair,Media Catalog,Name Service Management,Network Management,Project Management,RAD Management,Service Operator,Shadow Migration Monitor,Stat Store Management,Software Installation,System Configuration,User Management,ZFS Cloud Management,ZFS Storage Management
+```
+
+It looks like if the account being used was not added at install time, you
+could simply add the "Software Installation" profile to do the work:
+
+```bash
+$ profiles -p "Software Installation" info
+	name=Software Installation
+	desc=Add application software to the system
+	profiles=National Languages Support Management,ZFS File System Management
+	cmd=/usr/sbin/beadm
+	cmd=/usr/bin/ln
+	cmd=/usr/bin/pkginfo
+	cmd=/usr/bin/pkgmk
+	cmd=/usr/bin/pkgparam
+	cmd=/usr/bin/pkgproto
+	cmd=/usr/bin/pkgtrans
+	cmd=/usr/ccs/bin/make
+	cmd=/usr/sbin/install
+	cmd=/usr/sbin/pkgadd
+	cmd=/usr/sbin/pkgask
+	cmd=/usr/sbin/pkgchk
+	cmd=/usr/sbin/pkgrm
+	cmd=/usr/lib/rad/module/mod_ips.so.1
+	cmd=/usr/lib/rad/module/mod_bemgr.so.1
+	cmd=/usr/sbin/spliceadm
+	cmd=/usr/bin/pkg
 ```
 
 
