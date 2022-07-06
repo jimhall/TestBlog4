@@ -130,19 +130,21 @@ solaris
 Django==2.2.26
    ```
 - This is confirmed by running `pkg list -a *django*`:
-```bash
+    ```bash
 NAME (PUBLISHER)                                  VERSION                    IFO
 <truncate>
 library/python/django                             3.2.11-11.4.43.0.1.113.1   i--
 library/python/django-37                          2.2.26-11.4.43.0.1.113.1   i--
 library/python/django-39                          3.2.11-11.4.43.0.1.113.1   ---
-```
+    ```
 - The combination of `pip freeze` and `pkg list` revealed that the current
-  active environment is a combination of python 3.7 and Django 2.2.26. The
-  naming convention Solaris is using for Django packages is that the "default"
+  active environment is a combination of python 3.7 and Django 2.2.26, which
+  is `library/python/django-37`. 
+  The naming convention Solaris is using for Django packages is that the "default"
   `library/python/django` is related to `library/python/django-39` but my
-  currentIn
-  fact, according to the output above 3.2.11 is not even *installed*. 
+  current boot environment is configured to run python 3.7 which is related to
+  package `library/python/django-37`. 
+  In fact, according to the output above 3.2.11 is not even *installed*. 
 
 
 
