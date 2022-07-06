@@ -258,6 +258,17 @@ $ pip install -r requirements.txt
   Quit the server with CONTROL-C.
   ```
 
-## Conclusion and What happended during the next SRU update?
+## Conclusion and what happended during the next SRU update?
 
+Upgrading from SRU43 to SRU46 resulted in a slightly newer version of both
+python and Django with no issues. Go forward this seems to be a very easy and
+effective way to manage your python application environment.
 
+```bash
+$ python
+Python 3.9.9 (main, Mar 30 2022, 14:27:52)
+
+>>> import django
+>>> django.VERSION
+(3, 2, 13, 'final', 0)
+```
