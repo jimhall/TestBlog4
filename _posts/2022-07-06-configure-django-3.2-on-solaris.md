@@ -209,6 +209,39 @@ Type "help", "copyright", "credits" or "license" for more information.
   ```
 ### Creating my first Django application environment
 
+- Leveraging the [the following blog post by
+Darren](https://blogs.oracle.com/solaris/post/future-of-python-on-solaris) I
+used the `--system-site-packages` of `venv` to leverage the Solaris installed
+packages in addition to the default library:
+
+  ```bash
+  $ mkdir try-django
+  $ cd try-django/
+  $ python -m venv --system-site-packages .
+  ```
+
+- I then activated the venv, `pip freeze`, and created a requirements.txt:
+  ```bash
+$ source bin/activate
+$ pip freeze
+asgiref==3.3.4
+asn1crypto==1.3.0
+attrs==19.3.0
+Babel==2.9.1
+cffi==1.14.0
+chardet==4.0.0
+cheroot==6.3.2
+CherryPy==15.0.0
+cmd2==0.9.13
+colorama==0.4.4
+coverage==5.5
+cryptography==2.5
+Django==3.2.11
+$ pip install -r requirements.txt
+  ```
+```
+
+
 
 
 Looking at the original script in the blog post, it is pretty slick. My
