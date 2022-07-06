@@ -170,18 +170,18 @@ python   system    2.7     system
   the `--backup-be-name` option to create a backup boot environment:
 
   ```bash
-$ pfexec pkg set-mediator -v -V 3.9 --backup-be-name 11.4.43.113.3-switch-python3.9 python
-            Packages to change:        13
-           Mediators to change:         1
-     Estimated space available:  69.45 GB
-Estimated space to be consumed: 753.03 MB
-       Create boot environment:        No
-Create backup boot environment:       Yes
-          Rebuild boot archive:        No
+  $ pfexec pkg set-mediator -v -V 3.9 --backup-be-name 11.4.43.113.3-switch-python3.9 python
+              Packages to change:        13
+             Mediators to change:         1
+       Estimated space available:  69.45 GB
+  Estimated space to be consumed: 753.03 MB
+         Create boot environment:        No
+  Create backup boot environment:       Yes
+            Rebuild boot archive:        No
 
-Changed mediators:
-  mediator python:
-           version: 3.7 (vendor default) -> 3.9 (local default)
+  Changed mediators:
+    mediator python:
+             version: 3.7 (vendor default) -> 3.9 (local default)
   ```
 
 - `pkg info -l django-39` shows that Django 3.9 is installed. `pkg list | grep
