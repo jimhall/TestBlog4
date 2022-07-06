@@ -53,7 +53,7 @@ arrive at the desired destination.
 Solaris at this point is really full featured in being able to control what a
 non-root user can do on the system. At install it asks for a non-root user
 and adds the "System Administrator" profile to the account. Upon login you can
-get information about the profile and note that is superset of group of more
+get information about the profile and note that is superset or grouping of more
 granular profiles:
 
 ```bash
@@ -63,7 +63,7 @@ $ profiles -p "System Administrator" info
 	profiles=Fault Management,Install Service Management,Compliance Reporter,Unified Archive Administration,National Languages Support Management,Administrative Command History,Audit Review,Extended Accounting Flow Management,Extended Accounting Net Management,Extended Accounting Process Management,Extended Accounting Task Management,Cron Management,Device Management,File System Management,Log Management,Mail Management,Maintenance and Repair,Media Catalog,Name Service Management,Network Management,Project Management,RAD Management,Service Operator,Shadow Migration Monitor,Stat Store Management,Software Installation,System Configuration,User Management,ZFS Cloud Management,ZFS Storage Management
 ```
 
-It looks like if the account being used was not added at install time, you
+If the account being used was not added at install time, you
 could simply add the "Software Installation" profile to do the work:
 
 ```bash
@@ -89,7 +89,24 @@ $ profiles -p "Software Installation" info
 	cmd=/usr/sbin/spliceadm
 	cmd=/usr/bin/pkg
 ```
+### Trying to figure out what is on the system currently
 
+Running `pkg list | grep django` returned nothing, so it looked like my
+install did not include the software. I performed the following steps to
+arrive at the latest version provided by Oracle: 
+
+- Decided to use the "dry run" option of `pkg` to see if simply running
+  `pfexec pkg install -nv django` to see what would happen. I got the
+  following output:
+
+  ```bash
+                 Packages to install:        11
+           Estimated space available:  70.23 GB
+      Estimated space to be consumed: 757.46 MB
+             Create boot environment:        No
+      Create backup boot environment:        No
+                Rebuild boot archive:        No
+    ```
 
 
 
