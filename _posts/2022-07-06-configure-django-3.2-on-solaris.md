@@ -132,10 +132,10 @@ Django==2.2.26
 - This is confirmed by running `pkg list -a *django*`:
 ```bash
 NAME (PUBLISHER)                                  VERSION                    IFO
-```
 library/python/django                             3.2.11-11.4.43.0.1.113.1   i--
 library/python/django-37                          2.2.26-11.4.43.0.1.113.1   i--
 library/python/django-39                          3.2.11-11.4.43.0.1.113.1   ---
+```
 
 - The combination of `pip freeze` and `pkg list` combined with `python -V`
   returning 3.7 revealed that the current active environment is a combination
