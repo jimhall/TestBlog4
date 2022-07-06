@@ -17,7 +17,7 @@ manage packages on Solaris.
 ## The Short Version (TL;DR: Configure the latest version of Django)
 
 *Assuming* you have a full install of Solaris 11.4 (SRU43 was the SRU I first
-tried this, followed by and upgrade to SRU46), it seems to boil down to the
+tried this, followed by an upgrade to SRU46), it seems to boil down to the
 following (Assumes you have the "System Administrator" profile assigned):
 
 ```bash
@@ -139,7 +139,8 @@ library/python/django-37                          2.2.26-11.4.43.0.1.113.1   i--
 library/python/django-39                          3.2.11-11.4.43.0.1.113.1   ---
 ```
 
-- The combination of `pip freeze` and `pkg list` combined with `python -V`
+- The package naming convention seems to be `library/python/django-<python
+  version>`. The combination of `pip freeze` and `pkg list` combined with `python -V`
   returning 3.7 revealed that the current active environment is a combination
   of python 3.7 and Django 2.2.26, which is package `library/python/django-37`.
   However, the "default" `library/python/django` is related to
