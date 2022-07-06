@@ -129,7 +129,7 @@ solaris
   ```bash
 Django==2.2.26
    ```
-- This is confirmed by running `pkg list -a *django*`:
+- This is confirmed by running `pkg list -a *django*` (output truncated):
 ```bash
 NAME (PUBLISHER)                                  VERSION                    IFO
 library/python/django                             3.2.11-11.4.43.0.1.113.1   i--
@@ -139,11 +139,18 @@ library/python/django-39                          3.2.11-11.4.43.0.1.113.1   ---
 
 - The combination of `pip freeze` and `pkg list` combined with `python -V`
   returning 3.7 revealed that the current active environment is a combination
-  of python 3.7 and Django 2.2.26, which is `library/python/django-37`.
+  of python 3.7 and Django 2.2.26, which is package `library/python/django-37`.
   However, the "default" `library/python/django` is related to
   `library/python/django-39`, which according to the VERSION column would be
   Django 3.2.11, which according to the IFO column is not even *installed*.
   
+- So it looks like in order to get Django 3.2.11, python 3.9 needs to be
+  installed. Using `pkg list -a python-39` shows that python 3.9 is available
+  in the repo, but is not installed:
+```bash
+NAME (PUBLISHER)                                  VERSION                    IFO
+runtime/python-39                                 3.9.4-11.4.43.0.1.113.1    ---
+```
 
 
 
